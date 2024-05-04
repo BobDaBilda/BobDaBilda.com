@@ -20,6 +20,17 @@
             position: relative; /* Needed for z-index */
             color: white; /* Change text color to white */
             z-index: 1; /* Ensure content appears above the background */
+            display: grid;
+            align-items: center; 
+            grid-template-columns: 1fr 1fr 1fr;
+            column-gap: 5px;
+        }
+        img {
+            max-width: 100%;
+            max-height:100%;
+        }
+        .text {
+            font-size: 70px;
         }
         .logo {
             width: 150px;
@@ -74,9 +85,13 @@
     <div class="background-overlay"></div>
         <div class="container">
             <div class="name-tagline">
-                <img src="BobHeart.jpg" alt="Logo" class="logo">
+                <div class="image">
+                    <img src="BobHeart.jpg" alt="Logo" class="logo">
+                </div>
+                <div class="text">
                 <h1>BobDaBilda</h1>
                 <p>One of these days, I'll have a tagline...</p>
+            </div>
             </div>
             <div class="social-buttons">
                 <a href="https://www.facebook.com/people/Bobdabilda/100088222399991/"><img src="facebook.svg" alt="Facebook"></a>
