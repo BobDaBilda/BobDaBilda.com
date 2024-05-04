@@ -93,13 +93,18 @@
         </div>
     </div>
     <center>
-        <iframe
-            src="https://player.twitch.tv/?bobdabilda"
-            parent="bobdabilda.com"
-            height="300"
-            width="400"
-            allowfullscreen
-            autoplay="false"></iframe>
+        <script src= "https://player.twitch.tv/js/embed/v1.js"></script>
+        <div id="BobDaBilda"></div>
+        <script type="text/javascript">
+          var options = {
+            width: 1280,
+            height: 720,
+            channel: "bobdabilda",
+            autoplay: "false"
+          };
+          var player = new Twitch.Player("BobDaBilda", options);
+          player.setVolume(0.5);
+        </script>        
         <br>
         <iframe
             src="https://nightdev.com/hosted/obschat?theme=dark&channel=bobdabilda&fade=false&bot_activity=false&prevent_clipping=true"
