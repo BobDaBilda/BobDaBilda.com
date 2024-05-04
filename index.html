@@ -15,6 +15,7 @@
             padding: 20px;
             position: relative; /* Needed for z-index */
             color: white; /* Change text color to white */
+            z-index: 1; /* Ensure content appears above the background */
         }
         .logo {
             width: 150px;
@@ -26,15 +27,14 @@
             border-radius: 10px; /* Rounded corners */
             margin-bottom: 20px; /* Add some space below */
         }
-        .background {
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        min-height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
+        .background-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+            z-index: 0; /* Ensure it's behind the content */
         }
         .social-buttons {
             margin-top: 20px;
@@ -62,11 +62,12 @@
             text-align: center;
             color: #999;
             font-size: 12px;
+            z-index: 1; /* Ensure it's above the background */
         }
     </style>
 </head>
-<body style="background-image: url('c-o-runeterra-shadowisles-02.jpg');">
-    <div class="background">
+<body>
+    <div class="background-overlay"></div>
         <div class="container">
             <img src="BobHeart.jpg" alt="Logo" class="logo">
             <div class="name-tagline">
@@ -88,13 +89,10 @@
             <div id="twitch-embed"></div>
         </div>
     </div>
-
     <!-- Add a placeholder for the Twitch embed -->
     <div id="twitch-embed"></div>
-
     <!-- Load the Twitch embed JavaScript file -->
     <script src="https://embed.twitch.tv/embed/v1.js"></script>
-
     <!-- Create a Twitch.Embed object that will render within the "twitch-embed" element -->
     <script type="text/javascript">
       new Twitch.Embed("twitch-embed", {
@@ -103,9 +101,7 @@
         channel: "bobdabilda",
       });
     </script>
-
 <center><iframe id="bobdabilda chat" name="bobdabilda chat" src="https://nightdev.com/hosted/obschat?theme=dark&channel=BobDaBilda&fade=false&bot_activity=false&prevent_clipping=true" frameborder="0" scrolling="no" noresize="noresize" allowfullscreen="" width="50%"></iframe></center>
-
     <!-- Trademark Text -->
     <div class="trademark">
         All logos are trademarks of their respective owners.
