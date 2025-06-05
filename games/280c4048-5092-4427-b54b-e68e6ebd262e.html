@@ -1,0 +1,268 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>Jabroni Brawl: Episode 3</title>
+		<meta name="viewport" content="width=device-width, initial-scale=0.55">
+		<style>
+body {
+  background: #24282f;                                /* main background color in case of no image */
+  font-family: 'Arial';                               /* font arial which should be readable */
+  Height:100%;                                        /* set width to 100% also needed for background */
+  margin:0px;                                         /* hide any margins */
+  background-size: cover;                             /* size background image without distortion along width and height */
+  background-repeat: no-repeat;                       /* no background repeat */
+  Background-attachment:fixed;                        /* needed to make background image behave properly */
+  overflow-y:hidden;                                  /* no normal overflow, only our containers (details & description) will overflow or have scrollbar * /
+}
+ 
+html {
+  height:100%;                                        /* need to set this to 100% to make the background behave propertly */
+}
+
+.title h2 {
+  padding-left: 25px;                                 /* left padding */
+  color: #ccc;                                        /* text color */
+  margin: 0;                                          /* no margins */
+  background-color: black;                            /* black background */
+  vertical-align: middle;                             /* align vertical middle */
+  height: 48px;
+}
+
+.title {
+	width: 100%;                                      /* title container width 100% */
+	grid-column: 1 / span 3;                          /* column 1 but spans 3 */
+    grid-row: 1;                                      /* row 1 */
+	height: 48px;
+}
+.cards {                                              /* empty not used here */
+}
+
+.card {
+	display: grid;                                    /* container which is the grid */
+	grid-template-columns: min-content;               /* size columns to minimum content */
+	grid-template-rows: min-content min-content;      /* size rows to minimum content */
+	height: 100vh;                                    /* 100% viewport height */
+}
+
+.detailstitle{
+  grid-column: 1;                                     /* 1st column */
+  grid-row: 2;                                        /* 2nd row */
+  width: 350px;                                       /* fixed width set to same size as details */
+  padding-left: 10px;                                 /* some padding left */
+  padding-right: 10px;                                /* some padding right */
+}
+
+.details {
+  padding-left: 10px;                                 /* some padding left */
+  padding-right: 10px;                                /* some padding right */
+  color: #ccc;
+  grid-column: 1;                                      /* 1st column */
+  grid-row: 3;                                         /* 3rd row of grid */
+  width: 350px;                                        /* fixed width of details */
+  overflow-y: auto;                                     /* add vertical scrollbar if needed */
+  overflow-x:hidden;                                   /* don't overflow on x axis (no horz scrollbar) */
+ }
+ 
+.detailstitle h3,
+.descriptiontitle h3 {
+	border-bottom: 1px solid #ccc;                     /* titles of description details should have line under it */
+	padding: 5px;                                      /* add some padding */
+	color: #ccc;                                       /* text color of the titles */
+}
+
+.detailstable th, td {
+  border: 0px;                                         /* no borders on td, th elements */
+  color: #ccc;                                         /* details table text color */
+}
+
+.detailstable td {
+  text-align: left;                                    /* align text left */
+  vertical-align: top;                                 /* align top */
+}
+
+.detailstable {
+  width: 100%;                                         /* set to full width of details */
+  padding: 5px;                                        /* add some padding */
+}
+
+.descriptiontitle {
+	grid-column: 2;                                    /* column 2 of grid */
+	grid-row: 2;                                       /* row 2 of grid */
+	padding-left: 10px;                                /* some padding left */
+	padding-right: 10px;                               /* some padding right */
+}
+
+
+.description {
+	color: #ccc;                                       /* text color */
+	grid-column: 2;                                    /* 2nd column of grid */
+	grid-row: 3;                                       /* 3rd row of grid */
+	overflow-y: auto;                                  /* overflow-y automatic (for adding scrollbar) */
+	overflow-x:hidden;                                 /* prevent horizontal scrollbar */
+	padding-left: 10px;                                /* some padding left */
+	padding-right: 10px;                               /* some padding right */
+}
+
+.description img {
+	max-width: 100%;                                   /* make sure images don't overflow in width to prevent scrollbars */
+}
+
+.MenuButton {
+  border: none;                                        /* Remove borders */
+  outline: none;                                       /* Remove outline */
+  background-color: #888;                              /* Set a background color */
+  color: #000;                                         /* Text color */
+  padding: 5px;                                        /* Some padding */
+  border-radius: 4px;                                  /* Rounded corners, border */
+  font-size: 20px;                                     /* Increase font size */
+  cursor:pointer;                                         /* Add a mouse pointer on hover */
+  margin-right: 20px;                                  /* to have some space on right side before next element */
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+  text-decoration: none;
+}
+
+.MenuButton:hover {
+  background-color: #777;                              /* Add a dark-grey background on hover */
+  color: #CCC;                                         /* Text color */
+}
+
+a {
+ text-decoration: none;                                /* no text underline in links */
+}
+a:link {
+  color: #CCC;                                         /* unvisited link color */
+}
+a:visited {
+  color: #CCC;                                         /* visited link color */
+}
+a:hover {
+  color: #EEE;                                         /* mouse over link color */
+  text-decoration: underline;                          /* add text underline in links when mouse over */
+}
+a:active {
+  color: #CCC;                                         /* selected link color */
+}
+
+                                                       /* scrollbars W3C standard that is currently Firefox-only */
+* {
+  scrollbar-width: thin;                               /* small width */
+  scrollbar-color: #888 transparent;                   /* trackbar color + transparant background */
+}
+
+                                                       /* scrollbars on Chrome/Edge/Safari */
+*::-webkit-scrollbar {
+  width: 12px;                                         /* small width */
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;                             /* background color track */
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #AAA;                              /* background */
+  border-radius: 20px;                                 /* rounded corner, border */
+  border: 3px solid #888;                              /* add the border */
+}
+
+		</style>
+	</head>
+	<body style="background-image: linear-gradient(to bottom, #24282f, rgba(100,100,100,0.73))">
+		<div class="cards">
+			<div class="card">
+				<div class="title">
+					<h2><button onclick="window.history.back()" class="MenuButton">Back</button> Jabroni Brawl: Episode 3</h2>
+				</div>
+				<div class="detailstitle">
+				<H3>Details</H3>
+				</div>
+				<div class="details">
+					<div style="overflow: auto;">
+						<TABLE class="detailstable">
+							<col style="width:50%" />
+							<col style="width:50%" />							<TR>
+								<TD>Playtime</TD>
+								<TD>Not Played</TD>
+							</TR>
+							<TR>
+								<TD>Last Activity</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_lastactivity_descending_name_ascending.html#quicklink-Never">Never</a> </TD>
+							</TR>
+							<TR>
+								<TD>Added</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_added_descending_name_ascending.html#quicklink-Wednesday 3 27 2024">Wednesday 3 27 2024</a> 20:01:19</TD>
+							</TR>
+							<TR>
+								<TD>Modified</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_modified_descending_name_ascending.html#quicklink-Wednesday 3 27 2024">Wednesday 3 27 2024</a> 20:04:08</TD>
+							</TR>
+							<TR>
+								<TD>Completion Status</TD>
+								<TD><a href="default%20list%20text_completionstatus_ascending_name_ascending.html#quicklink-Not Played">Not Played</a></TD>
+							</TR>
+							<TR>
+								<TD>Library</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_library_ascending_name_ascending.html#quicklink-Steam">Steam</a></TD>
+							</TR>
+							<TR>
+								<TD>Source</TD>
+								<TD><a href="default%20list%20text_source_ascending_name_ascending.html#quicklink-Steam">Steam</a></TD>
+							</TR>
+							<TR>
+								<TD>Platform</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_platform_ascending_name_ascending.html#quicklink-PC (Windows)">PC (Windows)</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Release Date</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_releasedate_descending_name_ascending.html#quicklink-"></a> </TD>
+							</TR>
+							<TR>
+								<TD>Community Score</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_communityscore_descending_name_ascending.html#quicklink-"></a></TD>
+							</TR>
+							<TR>
+								<TD>Critic Score</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_criticscore_descending_name_ascending.html#quicklink-"></a></TD>
+							</TR>
+							<TR>
+								<TD>User Score</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_userscore_descending_name_ascending.html#quicklink-"></a></TD>
+							</TR>
+							<TR>
+								<TD>Genre</TD>
+								<TD></TD>
+							</TR>
+							<TR>
+								<TD>Developer</TD>
+								<TD></TD>
+							</TR>
+							<TR>
+								<TD>Publisher</TD>
+								<TD></TD>
+							</TR>
+							<TR>
+								<TD>Feature</TD>
+								<TD></TD>
+							</TR>
+							<TR>
+								<TD>Links</TD>
+								<TD></TD>
+							</TR>
+							<TR>
+								<TD>Tag</TD>
+								<TD></TD>
+							</TR>
+						</TABLE>
+					</div>
+				</div>
+				<div class="descriptiontitle">
+					<H3>Description</H3>
+				</div>
+				<div class="description">
+					<img src="https://cdn.akamai.steamstatic.com/steam/apps/869480/extras/description_bodycopy_header_v2.png?t=1682863088" /><h2 class="bb_tag">WHAT IS THIS THING?</h2>Jabroni Brawl: Episode 3 is a massive collection of game-modes, maps, and weapons, built by an enormous group of modders using the magic of the Source engine. First started in 2012, JB3 expands upon what made the Half-Life mod scene great by combining ideas and concepts from various Half-Life 1 and 2 mods, such as Rocket Crowbar, Scientist Hunt, Jaykin Bacon, and many more. In addition, this game seeks to pay tribute to Valve's vast library of games, as players will be treated to an assortment of maps and player models taken from or inspired by various Valve games. We've also thrown in our own original ideas, with the end result being a silly but fun online deathmatch experience.<h2 class="bb_tag">WHAT’S IT GOT??</h2>Our game-mode selection is pretty extensive, and draws inspiration from many HL1 mods:<br><ul class="bb_ul"><li>Battle Royale - Based off and expanded from it’s appearance in the 2004 Half-Life 1 mod Jaykin’ Bacon, each round begins with every player being given a random weapon. The last player standing by the end of the round will be the victor. Additionally, random KOTH-style safe zones appear at round-end to funnel players together, thereby ensuring the round doesn’t just end in a draw. Mutators can also kick in for random rounds, and serve to wildly change the rules to help keep long games feeling fresh (EX: A mutator round where you can only use a certain gun, or another mutator where you can only move backwards).<br></li><li>Sneak Vs Terrorists - Pits a team of heavily armed terrorists against a small stealth-oriented team (the Sneaks) who will be attempting to reach an objective that the terrorists must protect. A wide variety of gadgets will help Sneak reach the goal undetected, or silently take down members of the opposing team. <br></li><li>Sneak Vs M… - This pits a handful of Sneaks against a much larger team of shrunken-down melee players. They may only have their fists, but they’re fast and can respawn over and over again in their endless quest to kill the Sneaks. At least one Sneak must survive the horde for 90 seconds to be victorious! The appearance of team M also randomizes each round to feature a different “M” named group, just to keep things interesting (Sneak vs. Mattresses, Sneak vs Mallcops, etc). <br></li><li>Instagib - You spawn with a variety of 1-shot-kill weapons, but despite the visual differences, the fire-rate of these guns are all identical. The variation simply comes from what happens to a player you shoot with one of the gun (explodes, flies away, solidifies, etc). Pick a favorite gun, and score the most kills to win the round!<br></li><li>Gungame - Make your way through all the JB3 guns, getting a kill with each to progress. First to clear all the guns wins!</li></ul>And more!<br><br>With over 80 weapons in so far, you’ll find plenty to keep yourself entertained. Here's a sneak-peek of what to expect:<br><ul class="bb_ul"><li>Revolver - A powerful gun with an added quirk of always ricocheting after initial impact.<br></li><li>AX74 - It's an AKS74 with an Axe attached to the barrel. Shoot when they're far, swing when they're close!<br></li><li>Cardboard box - Duck or prone and don't press any of the movement keys to turn invisible. Wait till your foes get near and launch a sneak attack!<br></li><li>Rocket Crowbar - It’s a crowbar! With a rocket on the end! Swing it into players to send them flying, or use right click to fire drunken rockets at people. You can also hit the map itself to send yourself flying away for quick escapes.<br></li><li>Dubstep gun - One of the very first weapons added to the game way back in early 2012, this massive weapon plays dubstep music and essentially acts as an area of effect flame-thrower. Anyone subjected to this for too long will naturally have their head explode.</li></ul>AND MUCH, MUCH MORE!<br><br>We’ve got over 130 maps and 150+ players models, made over the years by our awesome community or graciously given to us for JB modification by other mod teams. There’s just no shortage of content here.<h2 class="bb_tag">TELL ME MORE!</h2>We've designed our game with one particular concept in mind: player freedom. Everything from various customizable options on the server creation page (including the ability to specify the sorts of guns you want to use, in case you're not interested in the sillier weapons) to hundreds of console variables for server owners that can alter just about every aspect of the game instantly within matches. Things getting a bit stale in your server's matches? Try setting a gun to fire super fast! Some of the commands can even let you make the guns behave in totally different ways. There's a great deal that can be changed with every single weapon in the game, and also within the game-modes themselves, so have fun experimenting!<br><br>We've also added a fun system for changing the color of your player model. The results from this have been amazing so far as basically any player model can be made to look totally different thanks to a new paint-job. In addition, this color setting affects a great deal of other features in the mod, from the color of your hands, to the color of various weapons you use!<br><br>Got an old map you want to try out in the various game-modes in JB3? Well good news, we've also made it so you can add in new map entities in-game through the console, and thus create all the needed spawn-points and BR Koth Zones to allow the map to work smoothly in JB3! These commands can then be tweaked in an editable text file that will be created within the game folder.<h2 class="bb_tag">OK I GET IT PLEASE STOP</h2>It's been a very long (and very bumpy) ride to completion, but hopefully it’s been worth the wait. This was a game made for the express purpose of just having some absolutely stupid fun, so we hope you'll enjoy it!
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

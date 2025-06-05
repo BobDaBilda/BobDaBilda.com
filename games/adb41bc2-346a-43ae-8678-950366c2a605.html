@@ -1,0 +1,268 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>Arcanists</title>
+		<meta name="viewport" content="width=device-width, initial-scale=0.55">
+		<style>
+body {
+  background: #24282f;                                /* main background color in case of no image */
+  font-family: 'Arial';                               /* font arial which should be readable */
+  Height:100%;                                        /* set width to 100% also needed for background */
+  margin:0px;                                         /* hide any margins */
+  background-size: cover;                             /* size background image without distortion along width and height */
+  background-repeat: no-repeat;                       /* no background repeat */
+  Background-attachment:fixed;                        /* needed to make background image behave properly */
+  overflow-y:hidden;                                  /* no normal overflow, only our containers (details & description) will overflow or have scrollbar * /
+}
+ 
+html {
+  height:100%;                                        /* need to set this to 100% to make the background behave propertly */
+}
+
+.title h2 {
+  padding-left: 25px;                                 /* left padding */
+  color: #ccc;                                        /* text color */
+  margin: 0;                                          /* no margins */
+  background-color: black;                            /* black background */
+  vertical-align: middle;                             /* align vertical middle */
+  height: 48px;
+}
+
+.title {
+	width: 100%;                                      /* title container width 100% */
+	grid-column: 1 / span 3;                          /* column 1 but spans 3 */
+    grid-row: 1;                                      /* row 1 */
+	height: 48px;
+}
+.cards {                                              /* empty not used here */
+}
+
+.card {
+	display: grid;                                    /* container which is the grid */
+	grid-template-columns: min-content;               /* size columns to minimum content */
+	grid-template-rows: min-content min-content;      /* size rows to minimum content */
+	height: 100vh;                                    /* 100% viewport height */
+}
+
+.detailstitle{
+  grid-column: 1;                                     /* 1st column */
+  grid-row: 2;                                        /* 2nd row */
+  width: 350px;                                       /* fixed width set to same size as details */
+  padding-left: 10px;                                 /* some padding left */
+  padding-right: 10px;                                /* some padding right */
+}
+
+.details {
+  padding-left: 10px;                                 /* some padding left */
+  padding-right: 10px;                                /* some padding right */
+  color: #ccc;
+  grid-column: 1;                                      /* 1st column */
+  grid-row: 3;                                         /* 3rd row of grid */
+  width: 350px;                                        /* fixed width of details */
+  overflow-y: auto;                                     /* add vertical scrollbar if needed */
+  overflow-x:hidden;                                   /* don't overflow on x axis (no horz scrollbar) */
+ }
+ 
+.detailstitle h3,
+.descriptiontitle h3 {
+	border-bottom: 1px solid #ccc;                     /* titles of description details should have line under it */
+	padding: 5px;                                      /* add some padding */
+	color: #ccc;                                       /* text color of the titles */
+}
+
+.detailstable th, td {
+  border: 0px;                                         /* no borders on td, th elements */
+  color: #ccc;                                         /* details table text color */
+}
+
+.detailstable td {
+  text-align: left;                                    /* align text left */
+  vertical-align: top;                                 /* align top */
+}
+
+.detailstable {
+  width: 100%;                                         /* set to full width of details */
+  padding: 5px;                                        /* add some padding */
+}
+
+.descriptiontitle {
+	grid-column: 2;                                    /* column 2 of grid */
+	grid-row: 2;                                       /* row 2 of grid */
+	padding-left: 10px;                                /* some padding left */
+	padding-right: 10px;                               /* some padding right */
+}
+
+
+.description {
+	color: #ccc;                                       /* text color */
+	grid-column: 2;                                    /* 2nd column of grid */
+	grid-row: 3;                                       /* 3rd row of grid */
+	overflow-y: auto;                                  /* overflow-y automatic (for adding scrollbar) */
+	overflow-x:hidden;                                 /* prevent horizontal scrollbar */
+	padding-left: 10px;                                /* some padding left */
+	padding-right: 10px;                               /* some padding right */
+}
+
+.description img {
+	max-width: 100%;                                   /* make sure images don't overflow in width to prevent scrollbars */
+}
+
+.MenuButton {
+  border: none;                                        /* Remove borders */
+  outline: none;                                       /* Remove outline */
+  background-color: #888;                              /* Set a background color */
+  color: #000;                                         /* Text color */
+  padding: 5px;                                        /* Some padding */
+  border-radius: 4px;                                  /* Rounded corners, border */
+  font-size: 20px;                                     /* Increase font size */
+  cursor:pointer;                                         /* Add a mouse pointer on hover */
+  margin-right: 20px;                                  /* to have some space on right side before next element */
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+  text-decoration: none;
+}
+
+.MenuButton:hover {
+  background-color: #777;                              /* Add a dark-grey background on hover */
+  color: #CCC;                                         /* Text color */
+}
+
+a {
+ text-decoration: none;                                /* no text underline in links */
+}
+a:link {
+  color: #CCC;                                         /* unvisited link color */
+}
+a:visited {
+  color: #CCC;                                         /* visited link color */
+}
+a:hover {
+  color: #EEE;                                         /* mouse over link color */
+  text-decoration: underline;                          /* add text underline in links when mouse over */
+}
+a:active {
+  color: #CCC;                                         /* selected link color */
+}
+
+                                                       /* scrollbars W3C standard that is currently Firefox-only */
+* {
+  scrollbar-width: thin;                               /* small width */
+  scrollbar-color: #888 transparent;                   /* trackbar color + transparant background */
+}
+
+                                                       /* scrollbars on Chrome/Edge/Safari */
+*::-webkit-scrollbar {
+  width: 12px;                                         /* small width */
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;                             /* background color track */
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #AAA;                              /* background */
+  border-radius: 20px;                                 /* rounded corner, border */
+  border: 3px solid #888;                              /* add the border */
+}
+
+		</style>
+	</head>
+	<body style="background-image: linear-gradient(to bottom, #24282f, rgba(100,100,100,0.73))">
+		<div class="cards">
+			<div class="card">
+				<div class="title">
+					<h2><button onclick="window.history.back()" class="MenuButton">Back</button> Arcanists</h2>
+				</div>
+				<div class="detailstitle">
+				<H3>Details</H3>
+				</div>
+				<div class="details">
+					<div style="overflow: auto;">
+						<TABLE class="detailstable">
+							<col style="width:50%" />
+							<col style="width:50%" />							<TR>
+								<TD>Playtime</TD>
+								<TD>Not Played</TD>
+							</TR>
+							<TR>
+								<TD>Last Activity</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_lastactivity_descending_name_ascending.html#quicklink-Never">Never</a> </TD>
+							</TR>
+							<TR>
+								<TD>Added</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_added_descending_name_ascending.html#quicklink-Tuesday 7 16 2024">Tuesday 7 16 2024</a> 19:12:19</TD>
+							</TR>
+							<TR>
+								<TD>Modified</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_modified_descending_name_ascending.html#quicklink-Tuesday 7 16 2024">Tuesday 7 16 2024</a> 19:12:34</TD>
+							</TR>
+							<TR>
+								<TD>Completion Status</TD>
+								<TD><a href="default%20list%20text_completionstatus_ascending_name_ascending.html#quicklink-Not Played">Not Played</a></TD>
+							</TR>
+							<TR>
+								<TD>Library</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_library_ascending_name_ascending.html#quicklink-Steam">Steam</a></TD>
+							</TR>
+							<TR>
+								<TD>Source</TD>
+								<TD><a href="default%20list%20text_source_ascending_name_ascending.html#quicklink-Steam">Steam</a></TD>
+							</TR>
+							<TR>
+								<TD>Platform</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_platform_ascending_name_ascending.html#quicklink-PC (Windows)">PC (Windows)</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Release Date</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_releasedate_descending_name_ascending.html#quicklink-Wednesday 2 27 2008">Wednesday 2 27 2008</a> </TD>
+							</TR>
+							<TR>
+								<TD>Community Score</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_communityscore_descending_name_ascending.html#quicklink-"></a></TD>
+							</TR>
+							<TR>
+								<TD>Critic Score</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_criticscore_descending_name_ascending.html#quicklink-"></a></TD>
+							</TR>
+							<TR>
+								<TD>User Score</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_userscore_descending_name_ascending.html#quicklink-"></a></TD>
+							</TR>
+							<TR>
+								<TD>Genre</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_genre_ascending_name_ascending.html#quicklink-Strategy">Strategy</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Developer</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_developer_ascending_name_ascending.html#quicklink-Jagex Ltd. Games Studio">Jagex Ltd. Games Studio</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Publisher</TD>
+								<TD></TD>
+							</TR>
+							<TR>
+								<TD>Feature</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_feature_ascending_name_ascending.html#quicklink-Co-Operative">Co-Operative</a><br/><a href="default%20list%20text%20combobox%20quicklinks_feature_ascending_name_ascending.html#quicklink-Multi-Player">Multi-Player</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Links</TD>
+								<TD><a href="https://www.reddit.com/r/arcanists" target="_blank">Reddit</a><br/><a href="https://wikipedia.org/wiki/Arcanists" target="_blank">Wikipedia</a><br/><a href="https://www.twitch.tv/directory/game/Arcanists" target="_blank">Twitch</a><br/><a href="https://store.steampowered.com/app/2901550" target="_blank">Steam</a><br/><a href="https://www.arcanists2.com/" target="_blank">Official</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Tag</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_tag_ascending_name_ascending.html#quicklink-2D">2D</a><br/><a href="default%20list%20text%20combobox%20quicklinks_tag_ascending_name_ascending.html#quicklink-Action">Action</a><br/><a href="default%20list%20text%20combobox%20quicklinks_tag_ascending_name_ascending.html#quicklink-Arcade">Arcade</a><br/><a href="default%20list%20text%20combobox%20quicklinks_tag_ascending_name_ascending.html#quicklink-Cartoony">Cartoony</a><br/><a href="default%20list%20text%20combobox%20quicklinks_tag_ascending_name_ascending.html#quicklink-Casual">Casual</a><br/><a href="default%20list%20text%20combobox%20quicklinks_tag_ascending_name_ascending.html#quicklink-Character Customization">Character Customization</a><br/><a href="default%20list%20text%20combobox%20quicklinks_tag_ascending_name_ascending.html#quicklink-Co-op">Co-op</a><br/><a href="default%20list%20text%20combobox%20quicklinks_tag_ascending_name_ascending.html#quicklink-eSports">eSports</a><br/><a href="default%20list%20text%20combobox%20quicklinks_tag_ascending_name_ascending.html#quicklink-Free to Play">Free to Play</a><br/><a href="default%20list%20text%20combobox%20quicklinks_tag_ascending_name_ascending.html#quicklink-Magic">Magic</a><br/><a href="default%20list%20text%20combobox%20quicklinks_tag_ascending_name_ascending.html#quicklink-Modern">Modern</a><br/><a href="default%20list%20text%20combobox%20quicklinks_tag_ascending_name_ascending.html#quicklink-Multiplayer">Multiplayer</a><br/><a href="default%20list%20text%20combobox%20quicklinks_tag_ascending_name_ascending.html#quicklink-Old School">Old School</a><br/><a href="default%20list%20text%20combobox%20quicklinks_tag_ascending_name_ascending.html#quicklink-Procedural Generation">Procedural Generation</a><br/><a href="default%20list%20text%20combobox%20quicklinks_tag_ascending_name_ascending.html#quicklink-PvP">PvP</a><br/><a href="default%20list%20text%20combobox%20quicklinks_tag_ascending_name_ascending.html#quicklink-Retro">Retro</a><br/><a href="default%20list%20text%20combobox%20quicklinks_tag_ascending_name_ascending.html#quicklink-Strategy">Strategy</a><br/><a href="default%20list%20text%20combobox%20quicklinks_tag_ascending_name_ascending.html#quicklink-Turn-Based Combat">Turn-Based Combat</a><br/><a href="default%20list%20text%20combobox%20quicklinks_tag_ascending_name_ascending.html#quicklink-Turn-Based Strategy">Turn-Based Strategy</a><br/><a href="default%20list%20text%20combobox%20quicklinks_tag_ascending_name_ascending.html#quicklink-Tutorial">Tutorial</a><br/></TD>
+							</TR>
+						</TABLE>
+					</div>
+				</div>
+				<div class="descriptiontitle">
+					<H3>Description</H3>
+				</div>
+				<div class="description">
+					<a href="https://steamcommunity.com/linkfilter/?u=https%3A%2F%2Farcanists2.com" target="_blank" rel=" noopener"  ><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2901550/extras/GIF_-_resize.gif?t=1721027662" /></a><br><br>Arcanists is a thrilling competitive + casual, multiplayer, turn-based, artillery game.<br><br>Players take turns in a race against the clock, utilizing an array of spells to defeat their opponents in battle!<br>Victory is accomplished by becoming the 'last man standing' (or last team) after all other players have been reduced to zero hitpoints.<br><br>-------------------------------------<br><br><strong><u>100+ Achievements to Earn</u></strong><br>Achievements are given for completing certain challenges in Arcanists and unlock special awards such as new outfits to use within Character Creation. These award Orb Points and Orb Coins, some of which are needed for the Prestige requirements (see below re. Prestige). <br>While some achievements are very easy to get, others are very difficult and could take several weeks to execute as one waits for the right circumstances to occur within the game!<br><br><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2901550/extras/Achievements.jpg?t=1721027662" /><br><br>-------------------------------------<br><br><strong><u>Character Creation</u></strong><br>Customise your very own Arcanist character, with over 100,000 costume combinations to choose from!<br><br><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2901550/extras/Character_Creation.jpg?t=1721027662" /><br><br>-------------------------------------<br><br><strong><u>Spell Selection</u></strong><br>Choose from a vast selection of 150+ extraordinary spells to bring in multiplayer battle!<br>- There are a total of 15 uniquely themed spellbooks, each containing 12 magical spells.<br>- Selecting all spells from one spellbook unlocks a 'Familiar' effect enabling use of a special ability/extra spells.<br>- You're limited to just 16 spells in your book... so choose wisely and be sure to read the descriptions...!<br><strong><u>Map Environments</u></strong><br>Select one of 16 unique map arenas on which to battle and vanquish your opponents!<br>Beware! Most maps have a powerful 'Armageddon' effect which initiates after a 10-turn countdown...<br>...Gradually destroying the map terrain, making it difficult for you to escape its destructive wrath!<br><br><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2901550/extras/Spell_Selection.png?t=1721027662" /><br><br>-------------------------------------<br><br><strong><u>Gameplay Special Features</u></strong><br>Choose from a wide range of game options and decide how you want to play!<br><br><strong>- 24 Player Battles:</strong> <br>Play with up to 24 players online in epic free for all's or team games! More players = crazier gameplay!<br><br><strong>- Play either Casual or Competitively:</strong><br>Play casual games in unranked with up to 24 players, or climb the rankings ladder in Ranked battles and climb the ladder to Rank #1!<br><br><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2901550/extras/Rankings.png?t=1721027662" /><br><br><strong>- Random Spells Mode:</strong><br>Unsure which spells to use? No problem! All players' spells become randomised by the game. RNG will decide your fate now!<br><br><strong>- Save your Custom Outfits &amp; Spellbooks:</strong> <br>As your game data is stored locally on your PC, you can save your costumes and spellbooks locally. Choose one of the presets in-game using a quick select menu!<br><br><strong>- On-Demand Gameplay Replay:</strong><br>Save replay files after spectating or playing a game and watch them whenever you like, on demand. Replay files can also be shared with others, accessible via the Main Menu!<br><br><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2901550/extras/Replays.png?t=1721027662" /><br><br><strong>- Share Spellbooks &amp; Outfits:</strong><br>Show off your custom outfit designs and spellbook creations with other players in the multiplayer lobby.<br><br><strong>- Design and Create Tutorials:</strong><br>Our tutorial framework enables you to create custom guides to help teach others how to become an Arcanists expert!<br><br>-------------------------------------
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
