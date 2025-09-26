@@ -1,0 +1,268 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>VShojoCraft</title>
+		<meta name="viewport" content="width=device-width, initial-scale=0.55">
+		<style>
+body {
+  background: #24282f;                                /* main background color in case of no image */
+  font-family: 'Arial';                               /* font arial which should be readable */
+  Height:100%;                                        /* set width to 100% also needed for background */
+  margin:0px;                                         /* hide any margins */
+  background-size: cover;                             /* size background image without distortion along width and height */
+  background-repeat: no-repeat;                       /* no background repeat */
+  Background-attachment:fixed;                        /* needed to make background image behave properly */
+  overflow-y:hidden;                                  /* no normal overflow, only our containers (details & description) will overflow or have scrollbar * /
+}
+ 
+html {
+  height:100%;                                        /* need to set this to 100% to make the background behave propertly */
+}
+
+.title h2 {
+  padding-left: 25px;                                 /* left padding */
+  color: #ccc;                                        /* text color */
+  margin: 0;                                          /* no margins */
+  background-color: black;                            /* black background */
+  vertical-align: middle;                             /* align vertical middle */
+  height: 48px;
+}
+
+.title {
+	width: 100%;                                      /* title container width 100% */
+	grid-column: 1 / span 3;                          /* column 1 but spans 3 */
+    grid-row: 1;                                      /* row 1 */
+	height: 48px;
+}
+.cards {                                              /* empty not used here */
+}
+
+.card {
+	display: grid;                                    /* container which is the grid */
+	grid-template-columns: min-content;               /* size columns to minimum content */
+	grid-template-rows: min-content min-content;      /* size rows to minimum content */
+	height: 100vh;                                    /* 100% viewport height */
+}
+
+.detailstitle{
+  grid-column: 1;                                     /* 1st column */
+  grid-row: 2;                                        /* 2nd row */
+  width: 350px;                                       /* fixed width set to same size as details */
+  padding-left: 10px;                                 /* some padding left */
+  padding-right: 10px;                                /* some padding right */
+}
+
+.details {
+  padding-left: 10px;                                 /* some padding left */
+  padding-right: 10px;                                /* some padding right */
+  color: #ccc;
+  grid-column: 1;                                      /* 1st column */
+  grid-row: 3;                                         /* 3rd row of grid */
+  width: 350px;                                        /* fixed width of details */
+  overflow-y: auto;                                     /* add vertical scrollbar if needed */
+  overflow-x:hidden;                                   /* don't overflow on x axis (no horz scrollbar) */
+ }
+ 
+.detailstitle h3,
+.descriptiontitle h3 {
+	border-bottom: 1px solid #ccc;                     /* titles of description details should have line under it */
+	padding: 5px;                                      /* add some padding */
+	color: #ccc;                                       /* text color of the titles */
+}
+
+.detailstable th, td {
+  border: 0px;                                         /* no borders on td, th elements */
+  color: #ccc;                                         /* details table text color */
+}
+
+.detailstable td {
+  text-align: left;                                    /* align text left */
+  vertical-align: top;                                 /* align top */
+}
+
+.detailstable {
+  width: 100%;                                         /* set to full width of details */
+  padding: 5px;                                        /* add some padding */
+}
+
+.descriptiontitle {
+	grid-column: 2;                                    /* column 2 of grid */
+	grid-row: 2;                                       /* row 2 of grid */
+	padding-left: 10px;                                /* some padding left */
+	padding-right: 10px;                               /* some padding right */
+}
+
+
+.description {
+	color: #ccc;                                       /* text color */
+	grid-column: 2;                                    /* 2nd column of grid */
+	grid-row: 3;                                       /* 3rd row of grid */
+	overflow-y: auto;                                  /* overflow-y automatic (for adding scrollbar) */
+	overflow-x:hidden;                                 /* prevent horizontal scrollbar */
+	padding-left: 10px;                                /* some padding left */
+	padding-right: 10px;                               /* some padding right */
+}
+
+.description img {
+	max-width: 100%;                                   /* make sure images don't overflow in width to prevent scrollbars */
+}
+
+.MenuButton {
+  border: none;                                        /* Remove borders */
+  outline: none;                                       /* Remove outline */
+  background-color: #888;                              /* Set a background color */
+  color: #000;                                         /* Text color */
+  padding: 5px;                                        /* Some padding */
+  border-radius: 4px;                                  /* Rounded corners, border */
+  font-size: 20px;                                     /* Increase font size */
+  cursor:pointer;                                         /* Add a mouse pointer on hover */
+  margin-right: 20px;                                  /* to have some space on right side before next element */
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+  text-decoration: none;
+}
+
+.MenuButton:hover {
+  background-color: #777;                              /* Add a dark-grey background on hover */
+  color: #CCC;                                         /* Text color */
+}
+
+a {
+ text-decoration: none;                                /* no text underline in links */
+}
+a:link {
+  color: #CCC;                                         /* unvisited link color */
+}
+a:visited {
+  color: #CCC;                                         /* visited link color */
+}
+a:hover {
+  color: #EEE;                                         /* mouse over link color */
+  text-decoration: underline;                          /* add text underline in links when mouse over */
+}
+a:active {
+  color: #CCC;                                         /* selected link color */
+}
+
+                                                       /* scrollbars W3C standard that is currently Firefox-only */
+* {
+  scrollbar-width: thin;                               /* small width */
+  scrollbar-color: #888 transparent;                   /* trackbar color + transparant background */
+}
+
+                                                       /* scrollbars on Chrome/Edge/Safari */
+*::-webkit-scrollbar {
+  width: 12px;                                         /* small width */
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;                             /* background color track */
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #AAA;                              /* background */
+  border-radius: 20px;                                 /* rounded corner, border */
+  border: 3px solid #888;                              /* add the border */
+}
+
+		</style>
+	</head>
+	<body style="background-image: linear-gradient(to bottom, #24282f, rgba(100,100,100,0.73))">
+		<div class="cards">
+			<div class="card">
+				<div class="title">
+					<h2><button onclick="window.history.back()" class="MenuButton">Back</button> VShojoCraft</h2>
+				</div>
+				<div class="detailstitle">
+				<H3>Details</H3>
+				</div>
+				<div class="details">
+					<div style="overflow: auto;">
+						<TABLE class="detailstable">
+							<col style="width:50%" />
+							<col style="width:50%" />							<TR>
+								<TD>Playtime</TD>
+								<TD>34m 26s</TD>
+							</TR>
+							<TR>
+								<TD>Last Activity</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_lastactivity_descending_name_ascending.html#quicklink-Friday, 2024-05-24">Friday, 2024-05-24</a> 2:40:49</TD>
+							</TR>
+							<TR>
+								<TD>Added</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_added_descending_name_ascending.html#quicklink-Friday, 2024-05-24">Friday, 2024-05-24</a> 1:25:53</TD>
+							</TR>
+							<TR>
+								<TD>Modified</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_modified_descending_name_ascending.html#quicklink-Tuesday, 2025-09-23">Tuesday, 2025-09-23</a> 21:13:43</TD>
+							</TR>
+							<TR>
+								<TD>Completion Status</TD>
+								<TD><a href="default%20list%20text_completionstatus_ascending_name_ascending.html#quicklink-Played">Played</a></TD>
+							</TR>
+							<TR>
+								<TD>Library</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_library_ascending_name_ascending.html#quicklink-MultiMC">MultiMC</a></TD>
+							</TR>
+							<TR>
+								<TD>Source</TD>
+								<TD><a href="default%20list%20text_source_ascending_name_ascending.html#quicklink-"></a></TD>
+							</TR>
+							<TR>
+								<TD>Platform</TD>
+								<TD></TD>
+							</TR>
+							<TR>
+								<TD>Release Date</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_releasedate_descending_name_ascending.html#quicklink-Friday, 2011-11-18">Friday, 2011-11-18</a> </TD>
+							</TR>
+							<TR>
+								<TD>Community Score</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_communityscore_descending_name_ascending.html#quicklink-"></a></TD>
+							</TR>
+							<TR>
+								<TD>Critic Score</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_criticscore_descending_name_ascending.html#quicklink-"></a></TD>
+							</TR>
+							<TR>
+								<TD>User Score</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_userscore_descending_name_ascending.html#quicklink-"></a></TD>
+							</TR>
+							<TR>
+								<TD>Genre</TD>
+								<TD></TD>
+							</TR>
+							<TR>
+								<TD>Developer</TD>
+								<TD></TD>
+							</TR>
+							<TR>
+								<TD>Publisher</TD>
+								<TD></TD>
+							</TR>
+							<TR>
+								<TD>Feature</TD>
+								<TD></TD>
+							</TR>
+							<TR>
+								<TD>Links</TD>
+								<TD><a href="https://minecraft.net/" target="_blank">Minecraft.net</a><br/><a href="https://www.curseforge.com/minecraft/mc-mods" target="_blank">Mods on Curseforge</a><br/><a href="https://modrinth.com/mods" target="_blank">Mods on Modrinth</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Tag</TD>
+								<TD></TD>
+							</TR>
+						</TABLE>
+					</div>
+				</div>
+				<div class="descriptiontitle">
+					<H3>Description</H3>
+				</div>
+				<div class="description">
+					<b>Minecraft 1.20.1</b><br><br>LWJGL 3.3.1<br>Fabric Loader 0.15.3<br>Fabric Intermediary Mappings 1.20.1<br><br>✅ Adaptive Tooltips 1.3.0<br>✅ Alloy Forgery 2.1.2+1.20<br>✅ Another Furniture 1.20.1-3.0.1<br>✅ AntiGhost 1.20-fabric0.83.0-1.1.5<br>✅ AppleSkin 2.5.1+mc1.20<br>✅ Aquamirae 6<br>✅ Architectury 9.1.12<br>✅ Artifacts 9.2.0<br>✅ Athena 3.1.1<br>✅ AzureLib Armor 2.0.3<br>✅ Balm 7.2.1<br>✅ Beautify 1.1.0+1.20<br>✅ Better Archeology 1.1.2-1.20.1<br>✅ Better Combat 1.8.4+1.20.1<br>✅ Better FPS distance Mod 1.20.1-4.0<br>✅ BetterThanMending 1.3.0<br>✅ Better Third Person 1.9.0<br>✅ Better village 3.1.0<br>✅ BHMenu-Fabric 2.4.1<br>✅ Big items, duh! 1.1.4+mc1.20.1<br>✅ Blanket Client-tweaks 1.1.4<br>✅ Blockus 2.7.12+1.20.1<br>✅ Bookshelf 20.1.8<br>✅ Botarium 2.3.2<br>✅ BounceStyles 2.5.0<br>✅ Bountiful 6.0.3+1.20.1<br>✅ Bovines and Buttercups 1.9.0+1.20.1-fabric<br>✅ Bad Wither No Cookie Reloaded 3.17.0<br>✅ Cardinal Components API 5.2.2<br>✅ Carpet Fixes 1.20-1.16.1<br>✅ Carpeted 1.20-1.4<br>✅ Carry On 2.1.2.7<br>✅ Casualness Delight Fabric 1.20.1-0.3a<br>✅ ChatAnimation 1.0.5<br>✅ Chat Heads 0.10.31<br>✅ Chimes 2.0.1<br>✅ Chipped 3.0.1<br>✅ Chunksending Mod 1.20.1-2.8<br>✅ Chunky 1.3.92<br>✅ CIT Resewn 1.1.3+1.20<br>✅ ClickThrough 1.20-fabric0.83.0-0.4.1<br>✅ clientcrafting Mod 1.20.1-1.7<br>✅ Cloth Config v11 11.1.118<br>✅ Clumps 12.0.0.3<br>✅ Cluttered 2.1.0+1.20.1<br>✅ Collective 7.30<br>✅ Combat Roll 1.3.1+1.20.1<br>✅ Compressed 2.0.0<br>✅ Connectible Chains 2.2.1+1.20.1<br>✅ Connectivity Mod 1.20.1-4.9<br>✅ Controlling For Fabric 12.0.2<br>✅ Convenient Decor 0.3.0<br>✅ Convenient Name Tags 1.1.0<br>✅ Couplings 1.9.5+1.20<br>✅ Crawl 0.12.0<br>✅ Creeper Overhaul 3.0.1<br>✅ cupboard 1.20.1-2.3<br>✅ Datapack Portals 1.2.3-1.20<br>✅ Debugify 1.20.1+2.0<br>✅ Decorative Blocks 4.0.3<br>✅ Deeper and Darker 1.2.5<br>✅ Delightful Creators 1.1.8<br>✅ Desolation 1.3.2<br>✅ Diagonal Fences 8.1.3<br>✅ Diagonal Windows 8.1.3<br>✅ Lets Do Api 1.2.8<br>✅ Dramatic Doors (QuiFabrge) 1.20.1-3.1.5<br>✅ Drippy Loading Screen 2.2.5<br>✅ Dungeons and Taverns 3.0.3<br>✅ Dungeons and Taverns Ancient City Overhaul 1<br>✅ Dungeons and Taverns Pillager Outpost Rework 1.1<br>✅ Dungeons and Taverns Stronghold Rework 1<br>✅ Eating Animation 1.20+1.9.5<br>✅ Elytra Slot 6.3.0+1.20.1<br>✅ EMI 1.1.0+1.20.1+fabric<br>✅ EMIffect 1.1.2+mc1.20.1<br>✅ EMI Loot 0.6.5+1.20.1<br>✅ Emojiful 4.2.0<br>✅ Emotecraft 2.2.7-b.build.50<br>✅ EmoteTweaks 1.20.1-0.1.0-ALPHA<br>✅ EnchantmentDescriptions 17.0.13<br>✅ Enderman Overhaul 1.0.4<br>✅ End's Phantasm 0.1<br>✅ EntityCulling-Fabric 1.6.2-mc1.20.1<br>✅ Entity Model Features 1.2.3<br>✅ Entity Texture Features 5.2.2<br>✅ Etcetera 1.1.2-fabric<br>✅ Expanded Delight 0.3.0.2<br>✅ Explorer's Compass 1.20.1-2.2.3-fabric<br>✅ Explorify v1.3.0-mc1.20<br>✅ Exposure 1.2.2<br>✅ Extra Mod Integrations 0.4.2+1.20.1<br>✅ Extra Thicc Packets 1.17-1.19+<br>✅ Fabric API 0.91.0+1.20.1<br>✅ Carpet Mod 1.4.112+v230608<br>✅ Fabric Language Kotlin 1.10.17+kotlin.1.9.22<br>✅ FancyMenu 2.14.13<br>✅ Farmer's Delight 1.20.1-1.4.3<br>✅ Farmer's Respite 2.3.4<br>✅ FNaFs Decorations (Java Edition) - Snapshot 0.23.19.1<br>✅ FerriteCore 6.0.1<br>✅ Forge Config API Port 8.0.0<br>✅ Forge Config Screens 8.0.2<br>✅ Framework 0.6.16<br>✅ Friends&Foes 2.0.7<br>✅ FSit v1.3.2<br>✅ Galosphere 1.20.1-1.4.1<br>✅ Gardens of the Dead 4.0.1<br>✅ Gazebos 1.1.1+1.20.1<br>✅ GeckoLib 4 4.4.2<br>✅ Geophilic v2.1.0-mc1.20u1.20.2<br>✅ Global XP 1.10.4<br>✅ Gpu memory leak fix mod 1.20.1-1.8<br>✅ Grappling Hook Mod 1.20-v1.7<br>✅ Grass Overhaul 23.10.11<br>✅ Universal Graves 3.0.1+1.20.1<br>✅ Grind Enchantments 3.1.2+1.20<br>✅ Handcrafted 3.0.5<br>✅ Harvest with ease 8.0.1.0<br>✅ Highlight 2.0.1<br>✅ Hybrid Aquatic 1.1.0<br>✅ ImmediatelyFast 1.2.8+1.20.4<br>✅ Immersive Paintings 0.6.7+1.20.1<br>✅ Indium 1.0.27+mc1.20.1<br>✅ Infinity Buttons 4.0.1-mc1.20.1<br>✅ Inventory Profiles Next 1.10.9<br>✅ Iris 1.6.11<br>✅ Iron Chests: Restocked 5.0.2<br>✅ ItemFrames+ 1.1.0<br>✅ ItemSwapper 0.5.3-mc1.20.1<br>✅ Jade 11.7.0<br>✅ Just Enough Items 15.2.0.27<br>✅ Just Hammers 2.0.3+mc1.20.1<br>✅ Kambrik 6.1.1+1.20.1<br>✅ Kiwi Library 11.5.4<br>✅ Konkrete 1.8.0<br>✅ KubeJS 2001.6.4-build.130<br>✅ labels 1.20-1.19<br>✅ LambDynamicLights 2.3.2+1.20.1<br>✅ LazyDFU 0.1.3<br>✅ Leaves Be Gone 8.0.0<br>✅ Bakery 1.1.3<br>✅ Candlelight 1.2.8<br>✅ libIPN 4.0.1<br>✅ Library ferret 4.0.0<br>✅ Lighting Wand 8.0.0<br>✅ Lithium 0.11.2<br>✅ Load My F***ing Tags 1.0.2+1.20<br>✅ Load My Resources 1.0.4<br>✅ Lootr 0.7.29.75<br>✅ Magnum Torch 8.0.2<br>✅ Macaw's Bridges 2.1.0<br>✅ Macaw's Doors 1.1.0<br>✅ Macaw's Fences and Walls 1.1.0<br>✅ Macaw's Lights and Lamps 1.0.6<br>✅ Macaw's Roofs 2.2.4<br>✅ Macaw's Trapdoors 1.1.2<br>✅ Macaw's Windows 2.2.1<br>✅ Memory Leak Fix 1.1.5<br>✅ Mermod 2.41<br>✅ Moog's End Structures 1.3-1.20-fabric<br>✅ MidnightLib 1.4.1<br>✅ Mighty Mail 1.0.14<br>✅ Mine Cells 1.6.2<br>✅ MixinTrace 1.1.1+1.17<br>✅ Mob Scarecrow 2.3.0<br>✅ ModernFix 5.12.1+mc1.20.1<br>✅ Mod Menu 7.2.2<br>✅ Moonlight 1.20-2.9.6<br>✅ More Culling 1.20.1-0.19.0<br>✅ Mouse Tweaks 2.25<br>✅ Mythic Metals 0.19.2+1.20.1<br>✅ Mythic Charms 0.6.0<br>✅ Naturalist 4.0.3<br>✅ Nature's Compass 1.20.1-2.2.3-fabric<br>✅ Necronomicon 1.4.1<br>✅ NetherPortalFix 13.0.1<br>✅ Night Lights 1.1<br>✅ NotEnoughAnimations 1.7.0<br>✅ Obscure API 16<br>✅ Ochetgenyo 1.2.0+1.20<br>✅ Origins 1.10.0<br>✅ oωo 0.11.2+1.20<br>✅ PaperDoll 1.1.1-mc1.20<br>✅ Paragliders 20.1.3<br>✅ Patchouli 1.20.1-84-FABRIC<br>✅ Paxi 1.20-Fabric-4.0<br>✅ Pehkui 3.7.12+1.14.4-1.20.4<br>✅ Playdate 2.0.0<br>✅ Player Animator 1.0.2-rc1+1.20<br>✅ Polymorph 0.49.1+1.20.1<br>✅ Projectile Damage Attribute 3.2.2+1.20.1<br>✅ Prominent Create 0.5.1-d-local+mc1.20.1<br>✅ Puzzles Lib 8.1.15<br>✅ Radiant Gear 2.1.0+1.20.1<br>✅ recipeessentials Mod 1.20.1-3.2<br>✅ Reese's Sodium Options 1.6.5+mc1.20.1-build.95<br>✅ Regions Unexplored 0.5.3.3+1.20.1<br>✅ Resourcefulconfig 2.1.2<br>✅ Resourceful Lib 2.1.20<br>✅ Rhino 2001.2.2-build.18<br>✅ Runes 0.9.11+1.20.1<br>✅ Screenshot Viewer 1.2.1-fabric-mc1.20<br>✅ Seamless 2.2.2<br>✅ Searchables 1.0.2<br>✅ Shield Overhaul 1.0.3<br>✅ Show Me What You Got 1.1.1<br>✅ Shulker Box Slot 5.1.1+1.20.1<br>✅ SimpleHats 1.20.1-0.2.0<br>✅ Simple Magnets 1.1.10<br>✅ Simply Swords 1.52.0-1.20.1<br>✅ Smooth chunk save Mod 1.20.1-3.5<br>✅ Hellion's Sniffer+ 0.2.0<br>✅ Snowy Spirit 1.20-3.0.6<br>✅ Snuffles 1.0.0+1.20<br>✅ Sodium Extra 0.5.1+mc1.20.1-build.112<br>✅ Sodium 0.5.3<br>✅ spark 1.10.53<br>✅ Species 1.3-fabric<br>✅ Spell Engine 0.12.5+1.20.1<br>✅ Spell Power Attribute 0.9.19+1.20.1<br>✅ Sprout 1.5.0<br>✅ Staff of Building ${version}<br>✅ Stone Expansion 2.2.1-mc1.20.1<br>✅ Stoneworks 8.0.0<br>✅ Structure Essentials Mod 1.20.1-3.2<br>✅ Structure Pool API 1.0+1.20.1<br>✅ SuperMartijn642's Config Lib 1.1.8+a<br>✅ SuperMartijn642's Core Lib 1.1.16<br>✅ Supplementaries 1.20-2.7.31<br>✅ TerraBlender 3.0.1.2<br>✅ The Bumblezone - Fabric 7.2.4+1.20.1-fabric<br>✅ Thigh highs etc 1.0.3<br>✅ Things 0.3.3+1.20<br>✅ Tiny Item Animations 1.20-1.1<br>✅ Tom's Simple Storage Mod 1.6.5<br>✅ ToolStats 16.0.7<br>✅ TrashSlot 15.1.0<br>✅ Traveler's Backpack 1.20.1-9.1.9<br>✅ TravelersCompass 1.1.0<br>✅ Traveler's Titles 1.20-Fabric-4.0.1<br>✅ Tree Harvester 8.6<br>✅ Trinkets 3.7.1<br>✅ Twigs 3.1.0<br>✅ Untranslated Items 1.20.1-1.7<br>✅ Variant Bookshelves 2.3.8<br>✅ Variant Chiseled Bookshelves 1.3.6<br>✅ Vein Mining 1.3.0+1.20.1<br>✅ Visuality 0.7.1+1.20<br>✅ Simple Voice Chat 1.20.1-2.4.32<br>✅ Waystones 14.1.3<br>✅ Wizards (RPG Series) 1.0.5+1.20.1<br>✅ Xaero's World Map 1.37.2<br>✅ Xaero's Minimap 23.9.3<br>✅ Joy of Painting fabric-1.20.1-1.0.0<br>✅ YetAnotherConfigLib 3.2.1+1.20<br>✅ YOSBR 0.1.2<br>✅ You Shall Not Spawn! 1.0.5<br>✅ YUNG's API 1.20-Fabric-4.0.2<br>✅ YUNG's Better Dungeons 1.20-Fabric-4.0.3<br>✅ YUNG's Better End Island 1.20-Fabric-2.0.5<br>✅ YUNG's Better Mineshafts 1.20-Fabric-4.0.4<br>✅ YUNG's Better Nether Fortresses 1.20-Fabric-2.0.5<br>✅ YUNG's Better Ocean Monuments 1.20-Fabric-3.0.4<br>✅ Yuushya 2.1.1<br>✅ Zoomify 2.11.2<br>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

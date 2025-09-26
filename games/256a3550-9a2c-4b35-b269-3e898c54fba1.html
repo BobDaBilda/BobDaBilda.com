@@ -1,0 +1,268 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>FTB Presents Direwolf20 1.20</title>
+		<meta name="viewport" content="width=device-width, initial-scale=0.55">
+		<style>
+body {
+  background: #24282f;                                /* main background color in case of no image */
+  font-family: 'Arial';                               /* font arial which should be readable */
+  Height:100%;                                        /* set width to 100% also needed for background */
+  margin:0px;                                         /* hide any margins */
+  background-size: cover;                             /* size background image without distortion along width and height */
+  background-repeat: no-repeat;                       /* no background repeat */
+  Background-attachment:fixed;                        /* needed to make background image behave properly */
+  overflow-y:hidden;                                  /* no normal overflow, only our containers (details & description) will overflow or have scrollbar * /
+}
+ 
+html {
+  height:100%;                                        /* need to set this to 100% to make the background behave propertly */
+}
+
+.title h2 {
+  padding-left: 25px;                                 /* left padding */
+  color: #ccc;                                        /* text color */
+  margin: 0;                                          /* no margins */
+  background-color: black;                            /* black background */
+  vertical-align: middle;                             /* align vertical middle */
+  height: 48px;
+}
+
+.title {
+	width: 100%;                                      /* title container width 100% */
+	grid-column: 1 / span 3;                          /* column 1 but spans 3 */
+    grid-row: 1;                                      /* row 1 */
+	height: 48px;
+}
+.cards {                                              /* empty not used here */
+}
+
+.card {
+	display: grid;                                    /* container which is the grid */
+	grid-template-columns: min-content;               /* size columns to minimum content */
+	grid-template-rows: min-content min-content;      /* size rows to minimum content */
+	height: 100vh;                                    /* 100% viewport height */
+}
+
+.detailstitle{
+  grid-column: 1;                                     /* 1st column */
+  grid-row: 2;                                        /* 2nd row */
+  width: 350px;                                       /* fixed width set to same size as details */
+  padding-left: 10px;                                 /* some padding left */
+  padding-right: 10px;                                /* some padding right */
+}
+
+.details {
+  padding-left: 10px;                                 /* some padding left */
+  padding-right: 10px;                                /* some padding right */
+  color: #ccc;
+  grid-column: 1;                                      /* 1st column */
+  grid-row: 3;                                         /* 3rd row of grid */
+  width: 350px;                                        /* fixed width of details */
+  overflow-y: auto;                                     /* add vertical scrollbar if needed */
+  overflow-x:hidden;                                   /* don't overflow on x axis (no horz scrollbar) */
+ }
+ 
+.detailstitle h3,
+.descriptiontitle h3 {
+	border-bottom: 1px solid #ccc;                     /* titles of description details should have line under it */
+	padding: 5px;                                      /* add some padding */
+	color: #ccc;                                       /* text color of the titles */
+}
+
+.detailstable th, td {
+  border: 0px;                                         /* no borders on td, th elements */
+  color: #ccc;                                         /* details table text color */
+}
+
+.detailstable td {
+  text-align: left;                                    /* align text left */
+  vertical-align: top;                                 /* align top */
+}
+
+.detailstable {
+  width: 100%;                                         /* set to full width of details */
+  padding: 5px;                                        /* add some padding */
+}
+
+.descriptiontitle {
+	grid-column: 2;                                    /* column 2 of grid */
+	grid-row: 2;                                       /* row 2 of grid */
+	padding-left: 10px;                                /* some padding left */
+	padding-right: 10px;                               /* some padding right */
+}
+
+
+.description {
+	color: #ccc;                                       /* text color */
+	grid-column: 2;                                    /* 2nd column of grid */
+	grid-row: 3;                                       /* 3rd row of grid */
+	overflow-y: auto;                                  /* overflow-y automatic (for adding scrollbar) */
+	overflow-x:hidden;                                 /* prevent horizontal scrollbar */
+	padding-left: 10px;                                /* some padding left */
+	padding-right: 10px;                               /* some padding right */
+}
+
+.description img {
+	max-width: 100%;                                   /* make sure images don't overflow in width to prevent scrollbars */
+}
+
+.MenuButton {
+  border: none;                                        /* Remove borders */
+  outline: none;                                       /* Remove outline */
+  background-color: #888;                              /* Set a background color */
+  color: #000;                                         /* Text color */
+  padding: 5px;                                        /* Some padding */
+  border-radius: 4px;                                  /* Rounded corners, border */
+  font-size: 20px;                                     /* Increase font size */
+  cursor:pointer;                                         /* Add a mouse pointer on hover */
+  margin-right: 20px;                                  /* to have some space on right side before next element */
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+  text-decoration: none;
+}
+
+.MenuButton:hover {
+  background-color: #777;                              /* Add a dark-grey background on hover */
+  color: #CCC;                                         /* Text color */
+}
+
+a {
+ text-decoration: none;                                /* no text underline in links */
+}
+a:link {
+  color: #CCC;                                         /* unvisited link color */
+}
+a:visited {
+  color: #CCC;                                         /* visited link color */
+}
+a:hover {
+  color: #EEE;                                         /* mouse over link color */
+  text-decoration: underline;                          /* add text underline in links when mouse over */
+}
+a:active {
+  color: #CCC;                                         /* selected link color */
+}
+
+                                                       /* scrollbars W3C standard that is currently Firefox-only */
+* {
+  scrollbar-width: thin;                               /* small width */
+  scrollbar-color: #888 transparent;                   /* trackbar color + transparant background */
+}
+
+                                                       /* scrollbars on Chrome/Edge/Safari */
+*::-webkit-scrollbar {
+  width: 12px;                                         /* small width */
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;                             /* background color track */
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #AAA;                              /* background */
+  border-radius: 20px;                                 /* rounded corner, border */
+  border: 3px solid #888;                              /* add the border */
+}
+
+		</style>
+	</head>
+	<body style="background-image: linear-gradient(to bottom, #24282f, rgba(100,100,100,0.73))">
+		<div class="cards">
+			<div class="card">
+				<div class="title">
+					<h2><button onclick="window.history.back()" class="MenuButton">Back</button> FTB Presents Direwolf20 1.20</h2>
+				</div>
+				<div class="detailstitle">
+				<H3>Details</H3>
+				</div>
+				<div class="details">
+					<div style="overflow: auto;">
+						<TABLE class="detailstable">
+							<col style="width:50%" />
+							<col style="width:50%" />							<TR>
+								<TD>Playtime</TD>
+								<TD>Not Played</TD>
+							</TR>
+							<TR>
+								<TD>Last Activity</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_lastactivity_descending_name_ascending.html#quicklink-Never">Never</a> </TD>
+							</TR>
+							<TR>
+								<TD>Added</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_added_descending_name_ascending.html#quicklink-Friday, 2024-06-07">Friday, 2024-06-07</a> 20:14:17</TD>
+							</TR>
+							<TR>
+								<TD>Modified</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_modified_descending_name_ascending.html#quicklink-Tuesday, 2025-09-23">Tuesday, 2025-09-23</a> 21:13:43</TD>
+							</TR>
+							<TR>
+								<TD>Completion Status</TD>
+								<TD><a href="default%20list%20text_completionstatus_ascending_name_ascending.html#quicklink-Not Played">Not Played</a></TD>
+							</TR>
+							<TR>
+								<TD>Library</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_library_ascending_name_ascending.html#quicklink-MultiMC">MultiMC</a></TD>
+							</TR>
+							<TR>
+								<TD>Source</TD>
+								<TD><a href="default%20list%20text_source_ascending_name_ascending.html#quicklink-"></a></TD>
+							</TR>
+							<TR>
+								<TD>Platform</TD>
+								<TD></TD>
+							</TR>
+							<TR>
+								<TD>Release Date</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_releasedate_descending_name_ascending.html#quicklink-Friday, 2011-11-18">Friday, 2011-11-18</a> </TD>
+							</TR>
+							<TR>
+								<TD>Community Score</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_communityscore_descending_name_ascending.html#quicklink-"></a></TD>
+							</TR>
+							<TR>
+								<TD>Critic Score</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_criticscore_descending_name_ascending.html#quicklink-"></a></TD>
+							</TR>
+							<TR>
+								<TD>User Score</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_userscore_descending_name_ascending.html#quicklink-"></a></TD>
+							</TR>
+							<TR>
+								<TD>Genre</TD>
+								<TD></TD>
+							</TR>
+							<TR>
+								<TD>Developer</TD>
+								<TD></TD>
+							</TR>
+							<TR>
+								<TD>Publisher</TD>
+								<TD></TD>
+							</TR>
+							<TR>
+								<TD>Feature</TD>
+								<TD></TD>
+							</TR>
+							<TR>
+								<TD>Links</TD>
+								<TD><a href="https://minecraft.net/" target="_blank">Minecraft.net</a><br/><a href="https://www.curseforge.com/minecraft/mc-mods" target="_blank">Mods on Curseforge</a><br/><a href="https://modrinth.com/mods" target="_blank">Mods on Modrinth</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Tag</TD>
+								<TD></TD>
+							</TR>
+						</TABLE>
+					</div>
+				</div>
+				<div class="descriptiontitle">
+					<H3>Description</H3>
+				</div>
+				<div class="description">
+					<b>Minecraft 1.20.1</b><br><br><br>✅ accelerated-decay-forge-3.0.1+mc1.20.1 <br>✅ Ad-Astra-Giselle-Addon-forge-1.20.1-6.1 <br>✅ AdvancedPeripherals-1.20.1-0.7.35b <br>✅ advgenerators-1.6.0.6-mc1.20.1 <br>✅ ad_astra-forge-1.20.1-1.15.10 <br>✅ AE2-Things-1.2.1 <br>✅ ae2wtlib-15.2.1-forge <br>✅ aether-1.20.1-1.1.0-neoforge <br>✅ Aethersteel-v4.9-1.20.1 <br>✅ aethersteeltweak-me.blackfur <br>✅ aether_enhanced_extinguishing-1.20.1-1.0.0-neoforge <br>✅ AI-Improvements-1.20-0.5.2 <br>✅ almostunified-forge-1.20.1-0.7.2 <br>✅ angelblockrenewed-forge-1.3-1.20 <br>✅ AngelRing2-1.20.1-2.2.2 <br>✅ antsportation-1.20.1-3.0.4 <br>✅ Apotheosis-1.20.1-7.2.2 <br>✅ ApothicAttributes-1.20.1-1.2.1 <br>✅ appleskin-forge-mc1.20.1-2.5.1 <br>✅ Applied-Botanics-forge-1.5.0 <br>✅ Applied-Mekanistics-1.4.2 <br>✅ appliedcooking-4.0.0 <br>✅ appliedenergistics2-forge-15.0.20 <br>✅ architectury-9.1.12-forge <br>✅ ars_creo-1.20.1-4.0.1 <br>✅ ars_nouveau-1.20.1-4.8.3-all <br>✅ ars_ocultas-1.20.1-1.1.0-all <br>✅ athena-forge-1.20.1-3.1.1 <br>✅ AttributeFix-Forge-1.20.1-21.0.4 <br>✅ balm-forge-1.20.1-7.2.1 <br>✅ BambooEverything-forge-3.0.3+mc1.20.1 <br>✅ baubley-heart-canisters-1.20.1-1.0.5 <br>✅ bdlib-1.27.0.8-mc1.20.1 <br>✅ BetterCompatibilityChecker-forge-4.0.8+mc1.20.1 <br>✅ BetterThanBunnies-1.20.1-Forge-1.3.0 <br>✅ BetterThanLlamas-1.20.1-Forge-1.2.0 <br>✅ bloodmagic-1.20.1-3.3.2-44 <br>✅ Bookshelf-Forge-1.20.1-20.1.8 <br>✅ Botania-1.20.1-443-FORGE <br>✅ botarium-forge-1.20.1-2.3.1 <br>✅ buildinggadgets2-1.0.6 <br>✅ cabletiers-1.20.1-1.2.1 <br>✅ caelus-forge-3.1.0+1.20 <br>✅ canary-mc1.20.1-0.3.2 <br>✅ cc-tweaked-1.20.1-forge-1.108.4 <br>✅ charginggadgets-1.11.0 <br>✅ chisels-and-bits-forge-1.4.145 <br>✅ citadel-2.4.9-1.20.1 <br>✅ cleanswing-1.20-1.4 <br>✅ cloth-config-11.1.118-forge <br>✅ Clumps-forge-1.20.1-12.0.0.3 <br>✅ cofh_core-1.20.1-11.0.0.51 <br>✅ Cognition-v2.0.2.1-1.20.1 <br>✅ colorfulhearts-forge-1.20.1-4.0.4 <br>✅ comforts-forge-6.3.4+1.20.1 <br>✅ CommonCapabilities-1.20.1-2.9.1 <br>✅ Connected Glass 1.1.10<br>✅ connectivity-1.20.1-4.9 <br>✅ constructionwand-1.20.1-2.11 <br>✅ Controlling-forge-1.20.1-12.0.2 <br>✅ cookingforblockheads-forge-1.20-16.0.1 <br>✅ craftingtweaks-forge-1.20-18.2.2 <br>✅ CraftTweaker-forge-1.20.1-14.0.30 <br>✅ create-1.20.1-0.5.1.f <br>✅ createaddition-1.20.1-1.2.1 <br>✅ createchunkloading-1.6.0-forge <br>✅ createteleporters1.1N <br>✅ CreateTweaker-forge-1.20.1-4.0.7 <br>✅ Cucumber-1.20.1-7.0.7 <br>✅ cupboard-1.20.1-2.2 <br>✅ curios-forge-5.4.7+1.20.1 <br>✅ curiotiab-1.20.1-2.0.2 <br>✅ Cyclic-1.20.1-1.12.6 <br>✅ CyclopsCore-1.20.1-1.18.14 <br>✅ DarkUtilities-Forge-1.20.1-17.0.3 <br>✅ deepresonance-1.20-5.0.3 <br>✅ default-server-properties-forge-81.1.0 <br>✅ defaultoptions-forge-1.20-18.0.1 <br>✅ Ding-1.20.1-Forge-1.4.1 <br>✅ dummmmmmy-1.20-1.8.13 <br>✅ DungeonsArise-1.20.x-2.1.58-release <br>✅ eccentrictome-1.20.1-1.10.2 <br>✅ EdivadLib-1.20.1-2.0.1 <br>✅ elevatorid-1.20.1-lex-1.9 <br>✅ elytraslot-forge-6.3.0+1.20.1 <br>✅ Emojiful-Forge-1.20.1-4.2.0 <br>✅ EnchantmentDescriptions-Forge-1.20.1-17.0.13 <br>✅ enderchests-forge-1.20.1-1.2 <br>✅ EnderIO-1.20.1-6.0.23-alpha <br>✅ endertanks-forge-1.20.1-1.2 <br>✅ entangled-1.3.16-forge-mc1.20 <br>✅ ExtremeReactors2-1.20.1-2.0.77 <br>✅ extremesoundmuffler-3.41-forge-1.20.1 <br>✅ fancymenu_forge_2.14.13_MC_1.20.1 <br>✅ FarmersDelight-1.20.1-1.2.3 <br>✅ farmingforblockheads-forge-1.20.1-14.0.2 <br>✅ FastFurnace-1.20.1-8.0.1 <br>✅ FastSuite-1.20.1-5.0.1 <br>✅ ferritecore-6.0.0-forge <br>✅ findme-3.2.0-forge <br>✅ flatbedrock-forge-3.0.1-build.18+mc1.20.1 <br>✅ flib-1.20.1-0.0.11 <br>✅ FlowerPatch-forge-1.20.1-3.1.0 <br>✅ FluxNetworks-1.20.1-7.2.0.14 <br>✅ forbidden_arcanus-1.20.1-2.2.4 <br>✅ FramedBlocks-9.1.6 <br>✅ ftb-auxilium-neoforge-81.1.1 <br>✅ ftb-chunks-forge-2001.2.5 <br>✅ ftb-essentials-forge-2001.2.2 <br>✅ ftb-hacks-neo-0.1.0+mc1.20.1 <br>✅ ftb-library-forge-2001.1.4 <br>✅ ftb-ranks-forge-2001.1.3 <br>✅ ftb-teams-forge-2001.1.4 <br>✅ ftb-xmod-compat-forge-2.0.1-20230904.102642-1 <br>✅ ftbbackups2-forge-1.20-1.0.23 <br>✅ functionalarmortrim-1.20.1-4 <br>✅ functionalstorage-1.20.1-1.2.8 <br>✅ fusion-1.1.0c-forge-mc1.20.1 <br>✅ GatewaysToEternity-1.20.1-4.2.3 <br>✅ geckolib-forge-1.20.1-4.4 <br>✅ growthcraft-1.20.1-9.1.2 <br>✅ GunpowderLib-1.20.2-2.2.1 <br>✅ HammerLib-1.20.1-20.1.24 <br>✅ handcrafted-forge-1.20.1-3.0.5 <br>✅ harvestwithease-1.20.1-8.0.1.0-forge <br>✅ hole_filler_mod-1.2.8_mc-1.20.1_forge <br>✅ HostileNeuralNetworks-1.20.1-5.2.0 <br>✅ hyperbox-1.20.1-4.0.1.0 <br>✅ ifly-1.0.3+mc1.20.1 <br>✅ Industrial Foregoing ${version}<br>✅ industrial-foregoing-souls-1.20.1-1.0.3 <br>✅ IntegratedCrafting-1.20.1-1.1.7 <br>✅ IntegratedDynamics-1.20.1-1.20.4 <br>✅ IntegratedTerminals-1.20.1-1.4.12 <br>✅ IntegratedTunnels-1.20.1-1.8.24 <br>✅ inventoryessentials-forge-1.20.1-8.2.1 <br>✅ inventorysorter-1.20.1-23.0.1 <br>✅ ironchest-1.20.1-14.4.4 <br>✅ ironfurnaces-1.20.1-4.1.3 <br>✅ IronJetpacks-1.20.1-7.0.2 <br>✅ irons_spellbooks-1.20.1-2.2.1 <br>✅ itemcollectors-1.1.9-forge-mc1.20 <br>✅ jamd-forge-3.4.2+mc1.20.1 <br>✅ JAOPCA-1.20.1-4.4.7.8 <br>✅ JAVD-Forge-5.0.1+mc1.20.1 <br>✅ jearchaeology-1.20.1-1.0.3 <br>✅ jei-1.20.1-forge-15.2.0.27 <br>✅ jumpboat-1.20.0-1.0.5 <br>✅ JustEnoughResources-1.20.1-1.4.0.238 <br>✅ justhammers-forge-2.0.0+mc1.20.1 <br>✅ kleeslabs-forge-1.20-15.0.0 <br>✅ konkrete_forge_1.8.0_MC_1.20-1.20.1 <br>✅ kotlinforforge-4.10.0-all <br>✅ kubejs-create-forge-2001.2.5-build.2 <br>✅ kubejs-forge-2001.6.4-build.127 <br>✅ kubejs-thermal-2001.1.10-build.2 <br>✅ kubejsadditions-forge-4.0.2 <br>✅ kubejs_enderio-forge-1.20.1-0.4.1 <br>✅ l2library-2.4.22 <br>✅ laserio-1.6.7 <br>✅ lemonlib-4.0.1 <br>✅ letmedespawn-forge-1.20.x-1.2.0 <br>✅ LibX-1.20.1-5.0.12 <br>✅ light-overlay-8.0.0-forge <br>✅ lootjs-forge-1.20.1-2.10.4 <br>✅ lootr-1.20-0.7.30.73 <br>✅ luggage-1.20-1.6.2 <br>✅ L_Enders_Cataclysm-1.89 -1.20.1 <br>✅ MaxHealthFix-Forge-1.20.1-12.0.2 <br>✅ mcjtylib-1.20-8.0.3 <br>✅ mcw-bridges-2.1.1-mc1.20.1forge <br>✅ mcw-doors-1.1.0forge-mc1.20.1 <br>✅ Measurements-forge-1.20.1-2.0.0 <br>✅ megacells-forge-2.2.9-1.20.1 <br>✅ Mekanism-1.20.1-10.4.5.19 <br>✅ MekanismAdditions-1.20.1-10.4.5.19 <br>✅ MekanismGenerators-1.20.1-10.4.5.19 <br>✅ MekanismTools-1.20.1-10.4.5.19 <br>✅ merequester-forge-1.20.1-1.1.4 <br>✅ mffs-5.1.9-all <br>✅ minetogether-forge-1.20-6.2.1 <br>✅ mininggadgets-1.15.6 <br>✅ mob_grinding_utils-1.20.1-1.0.3 <br>✅ modernfix-forge-5.12.1+mc1.20.1 <br>✅ modnametooltip-1.20.1-1.20.0 <br>✅ modonomicon-1.20.1-forge-1.54.4 <br>✅ modular-routers-12.1.0+mc1.20.1 <br>✅ modulargolems-2.4.27 <br>✅ moonlight-1.20-2.8.84-forge <br>✅ moredragoneggs-4.0 <br>✅ morered-1.20.1-4.0.0.4 <br>✅ MoreRed-CCT-Compat-1.20.1-1.0.0 <br>✅ MouseTweaks-forge-mc1.20-2.25 <br>✅ mowlib-0.4.54 <br>✅ Mute-2.0.1-build.11+mc1.20.1 <br>✅ NaturesAura-39.4 <br>✅ NaturesCompass-1.20.1-1.11.2-forge <br>✅ Neat-1.20-35-FORGE <br>✅ nomowanderer-1.20.1_1.6.3 <br>✅ occultism-1.20.1-1.104.1 <br>✅ OpenBlocksTrophies-1.20.1-4.0.0 <br>✅ Patchouli-1.20.1-84-FORGE <br>✅ pedestals-0.4.56 <br>✅ peripheralium-forge-1.20.1-0.6.14 <br>✅ peripheralworks-forge-1.20.1-1.4.2 <br>✅ PigPen-Forge-1.20.1-15.0.2 <br>✅ pipez-forge-1.20.1-1.2.6 <br>✅ Placebo-1.20.1-8.6.0 <br>✅ player-animation-lib-forge-1.0.2-rc1+1.20 <br>✅ playerplates-forge-3.0.4+mc1.20.1 <br>✅ pneumaticcraft-repressurized-6.0.13+mc1.20.1 <br>✅ pocketstorage-1.20.1-1.0.4-build.28 <br>✅ polylib-forge-2000.0.3-build.97 <br>✅ polymorph-forge-0.49.2+1.20.1 <br>✅ productivebees-1.20.1-12.2.15 <br>✅ railcraft-reborn-1.20.1-1.0.10 <br>✅ RainShield-1.20.1-1.1.2 <br>✅ rangedpumps-1.1.0 <br>✅ Rats-1.20.1-8.1.2 <br>✅ rebornstorage-1.20.1-5.0.7 <br>✅ rechiseled-1.1.5c-forge-mc1.20 <br>✅ rechiseledcreate-1.0.1-forge-mc1.20 <br>✅ refinedcooking-4.0.0 <br>✅ refinedstorage-1.12.4 <br>✅ refinedstorageaddons-0.10.0 <br>✅ resourcefulconfig-forge-1.20.1-2.1.2 <br>✅ resourcefullib-forge-1.20.1-2.1.20 <br>✅ rftoolsbase-1.20-5.0.2 <br>✅ rftoolsbuilder-1.20-6.0.3 <br>✅ rftoolscontrol-1.20-7.0.1 <br>✅ rftoolsdim-1.20-11.0.5 <br>✅ rftoolspower-1.20-6.0.1 <br>✅ rftoolsstorage-1.20-5.0.2 <br>✅ rftoolsutility-1.20-6.0.5 <br>✅ rhino-forge-2001.2.2-build.18 <br>✅ RSInfinityBooster-1.20.1-1.0+32 <br>✅ RefinedStorageRequestify ${version}<br>✅ Runelic-Forge-1.20.1-18.0.2 <br>✅ SaveYourPets-1.20.1-1.0.9 <br>✅ ScalableCatsForce-3.3.1-build-0-with-library <br>✅ Searchables-forge-1.20.1-1.0.2 <br>✅ sebastrnlib-4.0.0 <br>✅ serverconfigupdater-4.0.2 <br>✅ shetiphiancore-forge-1.20.1-1.2 <br>✅ shrink-neoforge-1.20.1-1.4.6 (1) <br>✅ SimpleDiscordRichPresence-forge-4.0.3-build.40+mc1.20.1 <br>✅ simplemagnets-1.1.10-forge-mc1.20 <br>✅ SimpleSponge-1.20.1-8.1 <br>✅ simplygraves-1.20.1-1.0.7-build.8 <br>✅ simplylight-1.20.1-1.4.6-build.50 <br>✅ sliceanddice-forge-3.2.0 <br>✅ SmartBrainLib-neoforge-1.20.1-1.12 <br>✅ smoothboot(reloaded)-mc1.20.1-0.0.4 <br>✅ smoothchunk-1.20.1-3.5 <br>✅ SolarFluxReborn-1.20.1-20.1.5 <br>✅ sophisticatedbackpacks-1.20.1-3.19.5.988 <br>✅ sophisticatedcore-1.20.1-0.5.113.524 <br>✅ sophisticatedstorage-1.20.1-0.8.65.680 <br>✅ soulshards-1.20-1.3.6 <br>✅ spark-1.10.53-forge <br>✅ StructureCompass-1.20.1-2.0.7 <br>✅ supermartijn642configlib-1.1.8-forge-mc1.20 <br>✅ supermartijn642corelib-1.1.16-forge-mc1.20.1 <br>✅ supplementaries-1.20-2.7.26 <br>✅ sushigocrafting-1.20.1-0.5.1 <br>✅ tempad-forge-1.20.1-2.3.3 <br>✅ TerraBlender-forge-1.20.1-3.0.1.2 <br>✅ tesseract-1.0.35a-forge-mc1.20.1 <br>✅ theoneprobe-1.20.1-10.0.1 <br>✅ thermal_cultivation-1.20.1-11.0.0.22 <br>✅ thermal_dynamics-1.20.1-11.0.0.21 <br>✅ thermal_expansion-1.20.1-11.0.0.27 <br>✅ thermal_foundation-1.20.1-11.0.2.64 <br>✅ thermal_innovation-1.20.1-11.0.0.21 <br>✅ thermal_integration-1.20.1-11.0.0.23 <br>✅ thermal_locomotion-1.20.1-11.0.0.17 <br>✅ time-in-a-bottle-4.0.4-mc1.20.1 <br>✅ TinyCoal-forge-1.20.1-1.1.4 <br>✅ Titanium ${version}<br>✅ ToastControl-1.20.1-8.0.3 <br>✅ tomeofblood-1.20.1-0.4.3-all <br>✅ ToolKit-forge-3.0.3-build.25+mc1.20.1 <br>✅ torchmaster-20.1.5 <br>✅ TrampleStopper-Forge-5.0.0+mc1.20.1 <br>✅ trashcans-1.0.18b-forge-mc1.20 <br>✅ TravelAnchors-1.20.1-5.0.1 <br>✅ trenzalore-forge-3.3.10+mc1.20.1-all <br>✅ Tropicraft-9.6.3 <br>✅ twilightforest-1.20.1-4.3.1893-universal <br>✅ valhelsia_core-forge-1.20.1-1.1.1 <br>✅ Waddles-1.20.1-0.9.4 <br>✅ waystones-forge-1.20-14.1.3 <br>✅ wirelesschargers-1.0.9-forge-mc1.20 <br>✅ wormhole-1.1.15-forge-mc1.20 <br>✅ XNet ${version}<br>✅ XyCraft Core-0.6.22 <br>✅ XyCraft Machines-0.6.22 <br>✅ XyCraft Override-0.6.22 <br>✅ XyCraft World-0.6.22 <br>✅ YeetusExperimentus-Forge-2.3.1-build.6+mc1.20.1 <br>✅ YungsApi-1.20-Forge-4.0.2 <br>✅ YungsBetterDungeons-1.20-Forge-4.0.3 <br>✅ YungsBetterMineshafts-1.20-Forge-4.0.4 <br>✅ YungsBridges-1.20-Forge-4.0.3 <br>✅ ZeroCore2-1.20.1-2.1.41 <br>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

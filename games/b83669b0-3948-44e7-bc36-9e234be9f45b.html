@@ -1,0 +1,268 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>FTB Presents Skyfactory 3</title>
+		<meta name="viewport" content="width=device-width, initial-scale=0.55">
+		<style>
+body {
+  background: #24282f;                                /* main background color in case of no image */
+  font-family: 'Arial';                               /* font arial which should be readable */
+  Height:100%;                                        /* set width to 100% also needed for background */
+  margin:0px;                                         /* hide any margins */
+  background-size: cover;                             /* size background image without distortion along width and height */
+  background-repeat: no-repeat;                       /* no background repeat */
+  Background-attachment:fixed;                        /* needed to make background image behave properly */
+  overflow-y:hidden;                                  /* no normal overflow, only our containers (details & description) will overflow or have scrollbar * /
+}
+ 
+html {
+  height:100%;                                        /* need to set this to 100% to make the background behave propertly */
+}
+
+.title h2 {
+  padding-left: 25px;                                 /* left padding */
+  color: #ccc;                                        /* text color */
+  margin: 0;                                          /* no margins */
+  background-color: black;                            /* black background */
+  vertical-align: middle;                             /* align vertical middle */
+  height: 48px;
+}
+
+.title {
+	width: 100%;                                      /* title container width 100% */
+	grid-column: 1 / span 3;                          /* column 1 but spans 3 */
+    grid-row: 1;                                      /* row 1 */
+	height: 48px;
+}
+.cards {                                              /* empty not used here */
+}
+
+.card {
+	display: grid;                                    /* container which is the grid */
+	grid-template-columns: min-content;               /* size columns to minimum content */
+	grid-template-rows: min-content min-content;      /* size rows to minimum content */
+	height: 100vh;                                    /* 100% viewport height */
+}
+
+.detailstitle{
+  grid-column: 1;                                     /* 1st column */
+  grid-row: 2;                                        /* 2nd row */
+  width: 350px;                                       /* fixed width set to same size as details */
+  padding-left: 10px;                                 /* some padding left */
+  padding-right: 10px;                                /* some padding right */
+}
+
+.details {
+  padding-left: 10px;                                 /* some padding left */
+  padding-right: 10px;                                /* some padding right */
+  color: #ccc;
+  grid-column: 1;                                      /* 1st column */
+  grid-row: 3;                                         /* 3rd row of grid */
+  width: 350px;                                        /* fixed width of details */
+  overflow-y: auto;                                     /* add vertical scrollbar if needed */
+  overflow-x:hidden;                                   /* don't overflow on x axis (no horz scrollbar) */
+ }
+ 
+.detailstitle h3,
+.descriptiontitle h3 {
+	border-bottom: 1px solid #ccc;                     /* titles of description details should have line under it */
+	padding: 5px;                                      /* add some padding */
+	color: #ccc;                                       /* text color of the titles */
+}
+
+.detailstable th, td {
+  border: 0px;                                         /* no borders on td, th elements */
+  color: #ccc;                                         /* details table text color */
+}
+
+.detailstable td {
+  text-align: left;                                    /* align text left */
+  vertical-align: top;                                 /* align top */
+}
+
+.detailstable {
+  width: 100%;                                         /* set to full width of details */
+  padding: 5px;                                        /* add some padding */
+}
+
+.descriptiontitle {
+	grid-column: 2;                                    /* column 2 of grid */
+	grid-row: 2;                                       /* row 2 of grid */
+	padding-left: 10px;                                /* some padding left */
+	padding-right: 10px;                               /* some padding right */
+}
+
+
+.description {
+	color: #ccc;                                       /* text color */
+	grid-column: 2;                                    /* 2nd column of grid */
+	grid-row: 3;                                       /* 3rd row of grid */
+	overflow-y: auto;                                  /* overflow-y automatic (for adding scrollbar) */
+	overflow-x:hidden;                                 /* prevent horizontal scrollbar */
+	padding-left: 10px;                                /* some padding left */
+	padding-right: 10px;                               /* some padding right */
+}
+
+.description img {
+	max-width: 100%;                                   /* make sure images don't overflow in width to prevent scrollbars */
+}
+
+.MenuButton {
+  border: none;                                        /* Remove borders */
+  outline: none;                                       /* Remove outline */
+  background-color: #888;                              /* Set a background color */
+  color: #000;                                         /* Text color */
+  padding: 5px;                                        /* Some padding */
+  border-radius: 4px;                                  /* Rounded corners, border */
+  font-size: 20px;                                     /* Increase font size */
+  cursor:pointer;                                         /* Add a mouse pointer on hover */
+  margin-right: 20px;                                  /* to have some space on right side before next element */
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+  text-decoration: none;
+}
+
+.MenuButton:hover {
+  background-color: #777;                              /* Add a dark-grey background on hover */
+  color: #CCC;                                         /* Text color */
+}
+
+a {
+ text-decoration: none;                                /* no text underline in links */
+}
+a:link {
+  color: #CCC;                                         /* unvisited link color */
+}
+a:visited {
+  color: #CCC;                                         /* visited link color */
+}
+a:hover {
+  color: #EEE;                                         /* mouse over link color */
+  text-decoration: underline;                          /* add text underline in links when mouse over */
+}
+a:active {
+  color: #CCC;                                         /* selected link color */
+}
+
+                                                       /* scrollbars W3C standard that is currently Firefox-only */
+* {
+  scrollbar-width: thin;                               /* small width */
+  scrollbar-color: #888 transparent;                   /* trackbar color + transparant background */
+}
+
+                                                       /* scrollbars on Chrome/Edge/Safari */
+*::-webkit-scrollbar {
+  width: 12px;                                         /* small width */
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;                             /* background color track */
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #AAA;                              /* background */
+  border-radius: 20px;                                 /* rounded corner, border */
+  border: 3px solid #888;                              /* add the border */
+}
+
+		</style>
+	</head>
+	<body style="background-image: linear-gradient(to bottom, #24282f, rgba(100,100,100,0.73))">
+		<div class="cards">
+			<div class="card">
+				<div class="title">
+					<h2><button onclick="window.history.back()" class="MenuButton">Back</button> FTB Presents Skyfactory 3</h2>
+				</div>
+				<div class="detailstitle">
+				<H3>Details</H3>
+				</div>
+				<div class="details">
+					<div style="overflow: auto;">
+						<TABLE class="detailstable">
+							<col style="width:50%" />
+							<col style="width:50%" />							<TR>
+								<TD>Playtime</TD>
+								<TD>Not Played</TD>
+							</TR>
+							<TR>
+								<TD>Last Activity</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_lastactivity_descending_name_ascending.html#quicklink-Never">Never</a> </TD>
+							</TR>
+							<TR>
+								<TD>Added</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_added_descending_name_ascending.html#quicklink-Friday, 2024-06-07">Friday, 2024-06-07</a> 20:14:17</TD>
+							</TR>
+							<TR>
+								<TD>Modified</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_modified_descending_name_ascending.html#quicklink-Tuesday, 2025-09-23">Tuesday, 2025-09-23</a> 21:13:43</TD>
+							</TR>
+							<TR>
+								<TD>Completion Status</TD>
+								<TD><a href="default%20list%20text_completionstatus_ascending_name_ascending.html#quicklink-Not Played">Not Played</a></TD>
+							</TR>
+							<TR>
+								<TD>Library</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_library_ascending_name_ascending.html#quicklink-MultiMC">MultiMC</a></TD>
+							</TR>
+							<TR>
+								<TD>Source</TD>
+								<TD><a href="default%20list%20text_source_ascending_name_ascending.html#quicklink-"></a></TD>
+							</TR>
+							<TR>
+								<TD>Platform</TD>
+								<TD></TD>
+							</TR>
+							<TR>
+								<TD>Release Date</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_releasedate_descending_name_ascending.html#quicklink-Friday, 2011-11-18">Friday, 2011-11-18</a> </TD>
+							</TR>
+							<TR>
+								<TD>Community Score</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_communityscore_descending_name_ascending.html#quicklink-"></a></TD>
+							</TR>
+							<TR>
+								<TD>Critic Score</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_criticscore_descending_name_ascending.html#quicklink-"></a></TD>
+							</TR>
+							<TR>
+								<TD>User Score</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_userscore_descending_name_ascending.html#quicklink-"></a></TD>
+							</TR>
+							<TR>
+								<TD>Genre</TD>
+								<TD></TD>
+							</TR>
+							<TR>
+								<TD>Developer</TD>
+								<TD></TD>
+							</TR>
+							<TR>
+								<TD>Publisher</TD>
+								<TD></TD>
+							</TR>
+							<TR>
+								<TD>Feature</TD>
+								<TD></TD>
+							</TR>
+							<TR>
+								<TD>Links</TD>
+								<TD><a href="https://minecraft.net/" target="_blank">Minecraft.net</a><br/><a href="https://www.curseforge.com/minecraft/mc-mods" target="_blank">Mods on Curseforge</a><br/><a href="https://modrinth.com/mods" target="_blank">Mods on Modrinth</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Tag</TD>
+								<TD></TD>
+							</TR>
+						</TABLE>
+					</div>
+				</div>
+				<div class="descriptiontitle">
+					<H3>Description</H3>
+				</div>
+				<div class="description">
+					<b>Minecraft 1.10.2</b><br><br>Forge 12.18.3.2511<br><br>✅ Actually Additions 1.10.2-r105<br>✅ ActuallyComputers 1.0.0<br>✅ AngelRing 2 Bauble 0.2.4<br>✅ AppleCore-mc1.10.2-3.1.4 <br>✅ apple_shields 0.1.7<br>✅ AppleSkin 1.0.14<br>✅ AutoPackager 1.6.4b<br>✅ AutoRegLib 1.0-2<br>✅ Baconators 1.10.2-3.0.6<br>✅ B.A.S.E 1.10.2-1.4.0<br>✅ Baubles 1.10.2-1.3.13<br>✅ BD Lib 1.12.4.24<br>✅ Bed Bugs 1.10.2-1.1.6<br>✅ Better Builder's Wands 0.11.1<br>✅ BetterFps-1.4.5-1.10 <br>✅ BetterThanBunnies 1.10.2-1.1.0<br>✅ BiomeTweaker 2.1<br>✅ BlockDispenser-1.0-1 <br>✅ Blood Magic: Alchemical Wizardry 1.10.2-2.1.11-80<br>✅ Bookshelf 1.10.2-1.4.4.347<br>✅ Botania r1.9-341<br>✅ Brandon's Core 1.10.2-2.1.14.137<br>✅ Ceramics 1.10.2-1.1.6b<br>✅ Chameleon 1.10.2-2.3.0<br>✅ Chance Cubes 1.10.2-3.1.1.221<br>✅ CharsetLib 0.3.9<br>✅ CharsetPipes 0.3.9<br>✅ CharsetTweaks 0.3.9<br>✅ CharsetWires 0.3.9<br>✅ CharsetGates 0.3.9<br>✅ CharsetAudio 0.3.9<br>✅ CharsetStorage 0.3.9<br>✅ CharsetDecoration 0.3.9<br>✅ CharsetDrama 0.3.9<br>✅ CharsetWrench 0.3.9<br>✅ Chest Transporter 1.10.2-2.5.18<br>✅ ChickenChunks 2.2.0.52<br>✅ Chickens 4.3.2<br>✅ Chisel MC1.10.2-0.2.1.47<br>✅ Chisels & Bits 12.18<br>✅ Client Tweaks 1.1.16<br>✅ Clipboard 1.10.2-1.1.1<br>✅ Clumps 1.0.5<br>✅ CodeChicken Core 2.4.1.102<br>✅ CodeChicken Lib 2.5.9.283<br>✅ Colossal Chests 1.10.2-1.6.0<br>✅ CommonCapabilities 1.9.4-1.3.3<br>✅ compatlayer 1.10-0.3.1<br>✅ Controlling 1.0.5<br>✅ Cooking for Blockheads 4.2.45<br>✅ MineTweaker 3 1.10.2-3.0.26<br>✅ CTM MC1.10.2-0.3.2.35<br>✅ CTMLib-MC1.7.10-1.4.1.5 <br>✅ Custom Main Menu 2.0.5<br>✅ Cyclops Core 1.9.4-0.10.9<br>✅ Dark Utilities 1.1.8.finalrc2<br>✅ Decocraft 2.5.2_1.10.2<br>✅ Default Options 6.1.5<br>✅ Example Mod 1.0<br>✅ Draconic Evolution 1.10.2-2.1.8.273<br>✅ Dragon Mounts r46-1.10.2<br>✅ Drawers & Bits 1.10.2-0.36<br>✅ Elevator Mod 1.3.0<br>✅ EnderCore 1.10.2-0.4.1.66-beta<br>✅ Ender IO 1.10.2-3.1.193<br>✅ EnderStorage 2.2.1.106<br>✅ Energy Converters 1.0.0.26<br>✅ Engineer's Workshop 1.3.6-1.10.2<br>✅ Environmental Tech 1.10.2-0.10.6a<br>✅ ET Lunar 1.10.2-0.10.6a<br>✅ Ex Compressum 2.0.97<br>✅ Ex Nihilo Adscensio 1.10.2-0.1.20<br>✅ Extra Bit Manipulation 1.10.2-2.6.2<br>✅ Extra Utilities 2 1.9.9<br>✅ Extreme Reactors 1.10.2-0.4.5.30<br>✅ Fairy Lights 2.1.3<br>✅ Farming for Blockheads 1.1.16<br>✅ Flat Colored Blocks mc1.10-v4.4<br>✅ Flux Networks 1.10.2-1.2.8<br>✅ FoamFix @VERSION@<br>✅ Shadowfacts' Forgelin 1.5.1<br>✅ FTBLib 1.1x-3.6.5<br>✅ FTBUtilities 1.1x-3.6.5<br>✅ Fullscreen Windowed 1.5.1<br>✅ Funnels 1.10.2-1.1.2<br>✅ Garden of Glass sqrt(-1)<br>✅ Advanced Generators 0.9.20.23<br>✅ GooglyEyes 1.10.2-6.0.0<br>✅ Gravestone Mod 1.5.13<br>✅ Grue 1.9.4-1.3.5<br>✅ Guide-API 1.10.2-2.0.3-46<br>✅ Gyth-1.10.2-2.0.0.27 <br>✅ Hammer Core <br>✅ Hatchery 0.3.22<br>✅ Headcrumbs 2.0.1<br>✅ Hopper Ducts mc1.9.4-1.4.8.1<br>✅ Waila 1.8.17-B31_1.10.2<br>✅ HydroGel 0.9<br>✅ Immersive Engineering 0.10-61<br>✅ InGame Info XML 2.8.1.89<br>✅ InitialInventory 1.0.1<br>✅ Integrated Dynamics 1.10.2-0.7.12<br>✅ Integrated Tunnels 1.10.2-1.2.5<br>✅ Simple Inventory sorting 0.11.0+47<br>✅ Iron Backpacks 1.10.2-2.2.33<br>✅ Iron Chest 1.10.2-7.0.15.804<br>✅ ItsBecauseUHasNoGoodSpawn-1.0.5 <br>✅ It's Raining Food 0.1.0<br>✅ Just Enough Items 3.14.7.420<br>✅ JourneyMap 1.10.2-5.5.2<br>✅ KleeSlabs 3.3.5<br>✅ Literal Ascension 1.10.2-1.0.2.2<br>✅ LLibrary 1.7.7-1.10.2<br>✅ Long Fall Boots 1.0<br>✅ Loot Bags 2.5.0<br>✅ LunatriusCore 1.1.2.38<br>✅ Mantle 1.1.5<br>✅ McJtyLib 1.1x-2.5.3-SNAPSHOT<br>✅ MCMultiPart-1.4.0-universal <br>✅ Mercurius 1.10.2<br>✅ MineMenu 1.10.2-1.4.5<br>✅ MiniCoal 1.1.0<br>✅ Missing Pieces 4.3.0<br>✅ MoarSigns 4.2.3.9<br>✅ mob_grinding_utils 0.1.8.22<br>✅ Mod Tweaker 2.0.13<br>✅ More Chickens 1.1.6<br>✅ More Shearables 1.1.3<br>✅ More Shears 1.0.2<br>✅ Morpheus 1.10.2-3.1.13<br>✅ Mouse Tweaks 2.8<br>✅ ModPack Basic Tools 1.1.5<br>✅ ModPack Utilities 1.2.9<br>✅ MTLib 1.0.3<br>✅ Mystical Agriculture 1.5.8<br>✅ Natura 1.10.2-4.1.0.80<br>✅ Neat 1.3-12<br>✅ Nice 0.1.0<br>✅ NotEnoughItems-1.10.2-2.1.3.220-universal <br>✅ Not Enough Wands 1.1x-1.5.5<br>✅ OpenComputers 1.7.5.245<br>✅ OreExcavation 1.2.102<br>✅ Packing Tape 0.6.0<br>✅ Pam's HarvestCraft 1.9.4-1.10.2g<br>✅ Platforms 1.10.0-1.2.10<br>✅ Psi r1.0-42<br>✅ QuantumStorage 3.3.6<br>✅ Random Things 3.7.7.1<br>✅ Ranged Pumps 0.3<br>✅ RebornCore 2.13.6.140<br>✅ RebornStorage 1.0.3.30<br>✅ Redstone Paste mc1.9.4-1.7.4<br>✅ Refined Storage 1.2.26<br>✅ Reliquia 0.0.7<br>✅ Resource Loader 1.5.1<br>✅ RFTools 1.1x-7.16<br>✅ RFTools Control 1.1x-1.7.0<br>✅ RFTools Dimensions 1.1x-5.05<br>✅ Roots 0.208<br>✅ SBM-WoodenShears-1.10.2-0.0.1b2-universal <br>✅ Scanner 1.5.3<br>✅ ShadowMC 1.10.2-3.6.1<br>✅ Shear Madness 1.7.1.6<br>✅ ShetiPhian-Core 1.10.0-3.3.11<br>✅ Example Mod MC1.9.4-1.2.2-28<br>✅ Simple Barrels 1.26e<br>✅ Simple Corn 1.10.2<br>✅ Simple Generators 1.10.2-0.10.6a<br>✅ Simple Labels 1-10.2-0.0.3<br>✅ Simply Jetpacks 2 2.1.3.55<br>✅ Snad 1.10.2-1.6.09.20a<br>✅ Solar Flux 2.17r<br>✅ SonarCore 1.10.2-3.3.0<br>✅ Steve's Carts 2 2.2.0.86<br>✅ Storage Drawers 1.10.2-3.7.10<br>✅ Super Circuit Maker 1.0.4<br>✅ Tinkers' Construct 1.10.2-2.6.5.10<br>✅ The Beneath 1.10.2-1.2.0<br>✅ Tinkers Tool Leveling 1.10.2-1.0.1<br>✅ Tiny Progressions 1.10.2-1.1.0<br>✅ TorchMaster 1.4.1.34<br>✅ Translocator 2.1.4.55<br>✅ Twerk-Sim 2K16 1.0.3<br>✅ Twitchcrumbs 2.0.4<br>✅ UniDict 2.9b<br>✅ Valkyrie Lib 1.10.2-0.10.6<br>✅ voidcup-1.10.2-0.0.1 <br>✅ Waddles 0.5.4<br>✅ WanionLib 1.3<br>✅ What Are We Looking At 1.10.2-2.3.2.215<br>✅ Wither Crumbs 1.10.2-0.9<br>✅ Experience Rings 1.3.0<br>✅ YUNoMakeGoodMap 1.10.2-6.1.0.26<br>✅ Zero CORE 1.10.2-0.1.0.6<br>✅ Fence Overhaul 1.2.1<br>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

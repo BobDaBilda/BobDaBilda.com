@@ -1,0 +1,268 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>All the Mods 7 - To the Sky - atm7sky</title>
+		<meta name="viewport" content="width=device-width, initial-scale=0.55">
+		<style>
+body {
+  background: #24282f;                                /* main background color in case of no image */
+  font-family: 'Arial';                               /* font arial which should be readable */
+  Height:100%;                                        /* set width to 100% also needed for background */
+  margin:0px;                                         /* hide any margins */
+  background-size: cover;                             /* size background image without distortion along width and height */
+  background-repeat: no-repeat;                       /* no background repeat */
+  Background-attachment:fixed;                        /* needed to make background image behave properly */
+  overflow-y:hidden;                                  /* no normal overflow, only our containers (details & description) will overflow or have scrollbar * /
+}
+ 
+html {
+  height:100%;                                        /* need to set this to 100% to make the background behave propertly */
+}
+
+.title h2 {
+  padding-left: 25px;                                 /* left padding */
+  color: #ccc;                                        /* text color */
+  margin: 0;                                          /* no margins */
+  background-color: black;                            /* black background */
+  vertical-align: middle;                             /* align vertical middle */
+  height: 48px;
+}
+
+.title {
+	width: 100%;                                      /* title container width 100% */
+	grid-column: 1 / span 3;                          /* column 1 but spans 3 */
+    grid-row: 1;                                      /* row 1 */
+	height: 48px;
+}
+.cards {                                              /* empty not used here */
+}
+
+.card {
+	display: grid;                                    /* container which is the grid */
+	grid-template-columns: min-content;               /* size columns to minimum content */
+	grid-template-rows: min-content min-content;      /* size rows to minimum content */
+	height: 100vh;                                    /* 100% viewport height */
+}
+
+.detailstitle{
+  grid-column: 1;                                     /* 1st column */
+  grid-row: 2;                                        /* 2nd row */
+  width: 350px;                                       /* fixed width set to same size as details */
+  padding-left: 10px;                                 /* some padding left */
+  padding-right: 10px;                                /* some padding right */
+}
+
+.details {
+  padding-left: 10px;                                 /* some padding left */
+  padding-right: 10px;                                /* some padding right */
+  color: #ccc;
+  grid-column: 1;                                      /* 1st column */
+  grid-row: 3;                                         /* 3rd row of grid */
+  width: 350px;                                        /* fixed width of details */
+  overflow-y: auto;                                     /* add vertical scrollbar if needed */
+  overflow-x:hidden;                                   /* don't overflow on x axis (no horz scrollbar) */
+ }
+ 
+.detailstitle h3,
+.descriptiontitle h3 {
+	border-bottom: 1px solid #ccc;                     /* titles of description details should have line under it */
+	padding: 5px;                                      /* add some padding */
+	color: #ccc;                                       /* text color of the titles */
+}
+
+.detailstable th, td {
+  border: 0px;                                         /* no borders on td, th elements */
+  color: #ccc;                                         /* details table text color */
+}
+
+.detailstable td {
+  text-align: left;                                    /* align text left */
+  vertical-align: top;                                 /* align top */
+}
+
+.detailstable {
+  width: 100%;                                         /* set to full width of details */
+  padding: 5px;                                        /* add some padding */
+}
+
+.descriptiontitle {
+	grid-column: 2;                                    /* column 2 of grid */
+	grid-row: 2;                                       /* row 2 of grid */
+	padding-left: 10px;                                /* some padding left */
+	padding-right: 10px;                               /* some padding right */
+}
+
+
+.description {
+	color: #ccc;                                       /* text color */
+	grid-column: 2;                                    /* 2nd column of grid */
+	grid-row: 3;                                       /* 3rd row of grid */
+	overflow-y: auto;                                  /* overflow-y automatic (for adding scrollbar) */
+	overflow-x:hidden;                                 /* prevent horizontal scrollbar */
+	padding-left: 10px;                                /* some padding left */
+	padding-right: 10px;                               /* some padding right */
+}
+
+.description img {
+	max-width: 100%;                                   /* make sure images don't overflow in width to prevent scrollbars */
+}
+
+.MenuButton {
+  border: none;                                        /* Remove borders */
+  outline: none;                                       /* Remove outline */
+  background-color: #888;                              /* Set a background color */
+  color: #000;                                         /* Text color */
+  padding: 5px;                                        /* Some padding */
+  border-radius: 4px;                                  /* Rounded corners, border */
+  font-size: 20px;                                     /* Increase font size */
+  cursor:pointer;                                         /* Add a mouse pointer on hover */
+  margin-right: 20px;                                  /* to have some space on right side before next element */
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+  text-decoration: none;
+}
+
+.MenuButton:hover {
+  background-color: #777;                              /* Add a dark-grey background on hover */
+  color: #CCC;                                         /* Text color */
+}
+
+a {
+ text-decoration: none;                                /* no text underline in links */
+}
+a:link {
+  color: #CCC;                                         /* unvisited link color */
+}
+a:visited {
+  color: #CCC;                                         /* visited link color */
+}
+a:hover {
+  color: #EEE;                                         /* mouse over link color */
+  text-decoration: underline;                          /* add text underline in links when mouse over */
+}
+a:active {
+  color: #CCC;                                         /* selected link color */
+}
+
+                                                       /* scrollbars W3C standard that is currently Firefox-only */
+* {
+  scrollbar-width: thin;                               /* small width */
+  scrollbar-color: #888 transparent;                   /* trackbar color + transparant background */
+}
+
+                                                       /* scrollbars on Chrome/Edge/Safari */
+*::-webkit-scrollbar {
+  width: 12px;                                         /* small width */
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;                             /* background color track */
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #AAA;                              /* background */
+  border-radius: 20px;                                 /* rounded corner, border */
+  border: 3px solid #888;                              /* add the border */
+}
+
+		</style>
+	</head>
+	<body style="background-image: linear-gradient(to bottom, #24282f, rgba(100,100,100,0.73))">
+		<div class="cards">
+			<div class="card">
+				<div class="title">
+					<h2><button onclick="window.history.back()" class="MenuButton">Back</button> All the Mods 7 - To the Sky - atm7sky</h2>
+				</div>
+				<div class="detailstitle">
+				<H3>Details</H3>
+				</div>
+				<div class="details">
+					<div style="overflow: auto;">
+						<TABLE class="detailstable">
+							<col style="width:50%" />
+							<col style="width:50%" />							<TR>
+								<TD>Playtime</TD>
+								<TD>Not Played</TD>
+							</TR>
+							<TR>
+								<TD>Last Activity</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_lastactivity_descending_name_ascending.html#quicklink-Never">Never</a> </TD>
+							</TR>
+							<TR>
+								<TD>Added</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_added_descending_name_ascending.html#quicklink-Friday, 2024-06-07">Friday, 2024-06-07</a> 20:14:17</TD>
+							</TR>
+							<TR>
+								<TD>Modified</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_modified_descending_name_ascending.html#quicklink-Tuesday, 2025-09-23">Tuesday, 2025-09-23</a> 21:13:43</TD>
+							</TR>
+							<TR>
+								<TD>Completion Status</TD>
+								<TD><a href="default%20list%20text_completionstatus_ascending_name_ascending.html#quicklink-Not Played">Not Played</a></TD>
+							</TR>
+							<TR>
+								<TD>Library</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_library_ascending_name_ascending.html#quicklink-MultiMC">MultiMC</a></TD>
+							</TR>
+							<TR>
+								<TD>Source</TD>
+								<TD><a href="default%20list%20text_source_ascending_name_ascending.html#quicklink-"></a></TD>
+							</TR>
+							<TR>
+								<TD>Platform</TD>
+								<TD></TD>
+							</TR>
+							<TR>
+								<TD>Release Date</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_releasedate_descending_name_ascending.html#quicklink-Friday, 2011-11-18">Friday, 2011-11-18</a> </TD>
+							</TR>
+							<TR>
+								<TD>Community Score</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_communityscore_descending_name_ascending.html#quicklink-"></a></TD>
+							</TR>
+							<TR>
+								<TD>Critic Score</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_criticscore_descending_name_ascending.html#quicklink-"></a></TD>
+							</TR>
+							<TR>
+								<TD>User Score</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_userscore_descending_name_ascending.html#quicklink-"></a></TD>
+							</TR>
+							<TR>
+								<TD>Genre</TD>
+								<TD></TD>
+							</TR>
+							<TR>
+								<TD>Developer</TD>
+								<TD></TD>
+							</TR>
+							<TR>
+								<TD>Publisher</TD>
+								<TD></TD>
+							</TR>
+							<TR>
+								<TD>Feature</TD>
+								<TD></TD>
+							</TR>
+							<TR>
+								<TD>Links</TD>
+								<TD><a href="https://minecraft.net/" target="_blank">Minecraft.net</a><br/><a href="https://www.curseforge.com/minecraft/mc-mods" target="_blank">Mods on Curseforge</a><br/><a href="https://modrinth.com/mods" target="_blank">Mods on Modrinth</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Tag</TD>
+								<TD></TD>
+							</TR>
+						</TABLE>
+					</div>
+				</div>
+				<div class="descriptiontitle">
+					<H3>Description</H3>
+				</div>
+				<div class="description">
+					<b>Minecraft 1.18.2</b><br><br>Forge 40.2.1<br><br>✅ absentbydesign-1.18.2-1.6.2 <br>✅ AdvancedPeripherals-0.7.27r <br>✅ advgenerators-1.1.0.6-mc1.18.2 <br>✅ AE2-Things-1.0.5 <br>✅ AEInfinityBooster-1.18.2-1.1.0+9 <br>✅ AkashicTome-1.5-20 <br>✅ alchemistry-1.18.2-2.1.3 <br>✅ alchemylib-1.18.2-1.0.20 <br>✅ AllTheCompressed-1.0.8-1.18.2-40.1.30 <br>✅ allthemodium-1.9.6-1.18.2-40.1.51 <br>✅ alltheores-1.9.9m-1.18.2-40.1.0 <br>✅ allthetweaks-1.9.9.9g-1.18.2-40.1.73 <br>✅ Apotheosis-1.18.2-5.7.7 <br>✅ appleskin-forge-mc1.18.2-2.4.1 <br>✅ Applied-Botanics-1.0.1 <br>✅ Applied-Mekanistics-1.2.2 <br>✅ appliedenergistics2-forge-11.7.0 <br>✅ archers_paradox-1.18.2-3.2.0.12 <br>✅ architectury-4.11.90-forge <br>✅ ars_nouveau-1.18.2-2.8.0 <br>✅ AttributeFix-Forge-1.18.2-14.0.2 <br>✅ AutoRegLib-1.7-53 <br>✅ balm-3.2.6 <br>✅ bdlib-1.19.3.7-mc1.18.2 <br>✅ BetterAdvancements-1.18.2-0.2.0.146 <br>✅ biggerreactors-1.18.2-0.6.0-beta.1.4 <br>✅ BloodMagic-1.18.2-3.2.6-41 <br>✅ Bookshelf-Forge-1.18.2-13.2.53 <br>✅ Botania-1.18.2-435 <br>✅ buildinggadgets-3.13.2-build.21+mc1.18.2 <br>✅ bwncr-3.13.21 <br>✅ carryon-1.18.2-1.17.0.8 <br>✅ cc-tweaked-1.18.2-1.101.2 <br>✅ cfm-7.0.0-pre35-1.18.2 <br>✅ Chargers-1.18.2-4.2.1.14 <br>✅ charginggadgets-1.7.0 <br>✅ chemlib-1.18.2-2.0.16 <br>✅ chipped-forge-1.18.2-2.0.1 <br>✅ cloth-config-6.4.90-forge <br>✅ Clumps-forge-1.18.2-8.0.0+17 <br>✅ CobbleForDays-1.5.1 <br>✅ CodeChickenLib-1.18.2-4.1.3.480-universal <br>✅ cofh_core-1.18.2-9.2.1.39 <br>✅ comforts-forge-1.18.2-5.0.0.6 <br>✅ CommonCapabilities-1.18.2-2.9.0 <br>✅ compactmachines-4.5.0 <br>✅ configured-2.0.1-1.18.2 <br>✅ connectivity-1.18.2-3.2 <br>✅ constructionwand-1.18.2-2.9 <br>✅ Controlling-forge-1.18.2-9.0+22 <br>✅ cookingforblockheads-forge-1.18.2-12.2.0 <br>✅ corail_woodcutter-1.18.2-2.3.9 <br>✅ CosmeticArmorReworked-1.18.2-v2a <br>✅ craftingtweaks-forge-1.18.2-14.0.4 <br>✅ crashutilities-4.1 <br>✅ create-1.18.2-0.5.0.i <br>✅ createaddition-1.18.2-20230404a <br>✅ createdeco-1.3.0-1.18.2 <br>✅ creeperoverhaul-1.3.1-forge <br>✅ Croptopia-1.18.2-FORGE-2.1.0 <br>✅ CTM-1.18.2-1.1.5+5 <br>✅ Cucumber-1.18.2-5.1.3 <br>✅ curios-forge-1.18.2-5.0.9.0 <br>✅ CyclopsCore-1.18.2-1.17.1 <br>✅ DarkUtilities-Forge-1.18.2-10.1.6 <br>✅ Decorative Blocks-forge-1.18.2-2.1.2 <br>✅ defaultoptions-forge-1.18.2-14.1.2 <br>✅ DeLogger-4.0.0-build.4+mc1.18.2 <br>✅ domum_ornamentum-1.18.2-1.0.50-ALPHA-universal <br>✅ elevatorid-1.18.2-1.8.4 <br>✅ emojiful-1.18.2-3.0.1 <br>✅ EnchantmentDescriptions-Forge-1.18.2-10.0.12 <br>✅ EnderStorage-1.18.2-2.9.0.182-universal <br>✅ energymeter-1.18.2-3.2.1 <br>✅ engineersdecor-1.18.2-1.1.28 <br>✅ exmachinis-1.18.2-1.1.0 <br>✅ ExNaturae-1.18.2-2.0.0 <br>✅ ExNihiloAE-1.18.2-20220607-014628 <br>✅ ExNihiloMekanism-1.18.2-20220608-005057 <br>✅ ExNihiloSequentia-1.18.2-20221113-044349 <br>✅ ExNihiloThermal-1.18.2-20220608-014416 <br>✅ extremesoundmuffler-3.30_forge-1.18.2 <br>✅ FarmersDelight-1.18.2-1.2.0 <br>✅ farmingforblockheads-forge-1.18.2-10.0.2 <br>✅ FastLeafDecay-28 <br>✅ findme-3.0.6-forge <br>✅ flickerfix-2.0.0 <br>✅ FluxNetworks-1.18.2-7.0.8.12 <br>✅ flywheel-forge-1.18.2-0.6.8.a <br>✅ forbidden_arcanus-1.18.2-2.1.2 <br>✅ FramedBlocks-5.11.3 <br>✅ ftb-chunks-forge-1802.3.16-build.247 <br>✅ ftb-essentials-1802.2.1-build.66 <br>✅ ftb-industrial-contraptions-1802.1.6-build.220 <br>✅ ftb-library-forge-1802.3.11-build.177 <br>✅ ftb-quests-forge-1802.3.14-build.191 <br>✅ ftb-teams-forge-1802.2.10-build.96 <br>✅ ftb-ultimine-forge-1802.3.3-build.70 <br>✅ functionalstorage-1.18.2-1.1.3 <br>✅ geckolib-forge-1.18-3.0.57 <br>✅ glassential-forge-1.18.2-1.2.3 <br>✅ HostileNeuralNetworks-1.18.2-3.2.2 <br>✅ ImmersiveEngineering-1.18.2-8.4.0-161 <br>✅ Industrial Foregoing ${version}<br>✅ infinitylib-2.1.4 <br>✅ InsaneLib-1.5.3-mc1.18.2 <br>✅ IntegratedCrafting-1.18.2-1.1.1 <br>✅ IntegratedDynamics-1.18.2-1.13.3 <br>✅ IntegratedTerminals-1.18.2-1.4.5 <br>✅ IntegratedTunnels-1.18.2-1.8.17 <br>✅ inventorysorter-1.18-19.0.0 <br>✅ ironchests-2.0.5-forge <br>✅ ironfurnaces-1.18.2-3.3.3 <br>✅ IronJetpacks-1.18.2-5.1.4 <br>✅ item-filters-forge-1802.2.8-build.47 <br>✅ itemcollectors-1.1.7-forge-mc1.18 <br>✅ jei-1.18.2-forge-10.2.1.1004 <br>✅ jeiintegration_1.18.2-9.0.0.37 <br>✅ JustEnoughResources-1.18.2-0.14.1.171 <br>✅ kleeslabs-forge-1.18.2-11.1.1 <br>✅ kotlinforforge-3.11.0-all <br>✅ kubejs-create-forge-1802.2.2-build.28 <br>✅ kubejs-forge-1802.5.5-build.569 <br>✅ kubejs-immersive-engineering-1802.2.1-build.35 <br>✅ kubejs-mekanism-1802.1.3-build.8 <br>✅ kubejs-thermal-1802.1.5-build.16 <br>✅ laserio-1.4.5 <br>✅ lazierae2-1.18.2-3.1.5 <br>✅ libnonymous-2.1.0 <br>✅ LibX-1.18.2-3.2.19 <br>✅ light-overlay-6.0.5-forge <br>✅ Mantle-1.18.2-1.9.43 <br>✅ mcjtylib-1.18-6.0.20 <br>✅ mcw-bridges-2.0.7-mc1.18.2forge <br>✅ mcw-doors-1.0.9forge-mc1.18.2 <br>✅ mcw-fences-1.0.7-mc1.18.2forge <br>✅ mcw-roofs-2.2.3-mc1.18.2forge <br>✅ mcw-trapdoors-1.0.9-mc1.18.2forge <br>✅ mcw-windows-2.1.1-mc1.18.2forge <br>✅ MEGACells-1.4.2-1.18.2 <br>✅ Mekanism-1.18.2-10.2.5.465 <br>✅ MekanismGenerators-1.18.2-10.2.5.465 <br>✅ MekanismTools-1.18.2-10.2.5.465 <br>✅ mob_grinding_utils-1.18.2-0.4.47 <br>✅ modnametooltip-1.18.1-1.18.0 <br>✅ modonomicon-1.18.2-1.30.1 <br>✅ moredragoneggs-3.1 <br>✅ MouseTweaks-forge-mc1.18-2.21 <br>✅ myrtrees-forge-1.1.0-build.29 <br>✅ MyServerIsCompatible-1.18-1.0 <br>✅ MysticalAgradditions-1.18.2-5.1.3 <br>✅ MysticalAgriculture-1.18.2-5.1.4 <br>✅ MysticalCustomization-1.18.2-3.1.2 <br>✅ MythicBotany-1.18.2-2.1.14 <br>✅ NaturesCompass-1.18.2-1.9.7-forge <br>✅ norecipeadvancements-1.18.2-2.0.1 <br>✅ notenoughwands-1.18-4.0.0 <br>✅ novillagerdm-1.18.1-3.0.0 <br>✅ observable-2.2.3-forge <br>✅ occultism-1.18.2-1.73.2 <br>✅ PackMenu-1.18.2-4.1.4 <br>✅ Patchouli-1.18.2-71.1 <br>✅ phosphophyllite-1.18.2-0.6.0-beta.1.6 <br>✅ PigPen-Forge-1.18.2-8.0.1 <br>✅ pipez-1.18.2-1.1.5 <br>✅ Placebo-1.18.2-6.6.6 <br>✅ plonk-1.18.2-10.0.2 <br>✅ pneumaticcraft-repressurized-1.18.2-3.6.0-19 <br>✅ polymorph-forge-1.18.2-0.46 <br>✅ ponderjs-1.18.2-1.1.9 <br>✅ potionsmaster-0.5.9-1.18.2-40.0.2 <br>✅ Powah-3.0.7 <br>✅ productivebees-1.18.2-0.9.3.0 <br>✅ ProjectE-1.18.2-PE1.0.1 <br>✅ pylons-1.18.2-2.2.0 <br>✅ quartz-1.18.2-0.0.0-beta.1.4 <br>✅ ReAuth-1.18-Forge-4.0.7 <br>✅ redstone_arsenal-1.18.2-6.2.0.13 <br>✅ reliquary-1.18.2-2.0.19.1161 <br>✅ rftoolsbase-1.18-3.0.12 <br>✅ rftoolsbuilder-1.18-4.1.1 <br>✅ rftoolspower-1.18-4.0.9 <br>✅ rftoolsstorage-1.18-3.0.12 <br>✅ rftoolsutility-1.18-4.0.23 <br>✅ rhino-forge-1802.2.1-build.255 <br>✅ right_click_get_crops-1.18.2-1.4.0.10 <br>✅ Runelic-Forge-1.18.2-11.0.1 <br>✅ ScalableCatsForce-2.13.10-build-12-with-library <br>✅ serverconfigupdater-2.2 <br>✅ showcaseitem-1.18.2-1.0 <br>✅ Shrink-1.18.2-1.3.3 <br>✅ shutupexperimentalsettings-1.0.5 <br>✅ SimpleBackups-1.18.2-1.1.13 <br>✅ simplemagnets-1.1.9-forge-mc1.18 <br>✅ SkyblockBuilder-1.18.2-3.3.25 <br>✅ SkyGUIs-1.18.2-1.2.2 <br>✅ SlabMachines-1.18.2-1.1.3 <br>✅ SmartBrainLib-forge-1.18.2-1.9 <br>✅ Snad-1.18.2-1.22.04.15a <br>✅ SolarGeneration-1.18.2-4.1.1 <br>✅ sophisticatedbackpacks-1.18.2-3.18.43.802 <br>✅ sophisticatedcore-1.18.2-0.5.46.233 <br>✅ sophisticatedstorage-1.18.2-0.6.22.308 <br>✅ spark-1.9.11-forge <br>✅ spirit-forge-1.18.2-2.1.8 <br>✅ squatgrow-forge-2.0.2-build.38+mc1.18.2 <br>✅ squirtgun-1.18.2-1.1.0 <br>✅ structures_compass-1.18.2-1.4.1 <br>✅ SuperCircuitMaker2-0.2.9+1.18.2 <br>✅ supermartijn642configlib-1.1.6-forge-mc1.18 <br>✅ supermartijn642corelib-1.1.6-forge-mc1.18 <br>✅ TConstruct-1.18.2-3.6.3.111 <br>✅ theoneprobe-1.18-5.1.2 <br>✅ thermal_cultivation-1.18.2-9.2.0.16 <br>✅ thermal_dynamics-1.18.2-9.2.1b.13 <br>✅ thermal_expansion-1.18.2-9.2.0.20 <br>✅ thermal_foundation-1.18.2-9.2.0.46 <br>✅ thermal_innovation-1.18.2-9.2.0.17 <br>✅ TipTheScales-forge-1.18.2-5.0.6 <br>✅ Titanium ${version}<br>✅ TKLib-0.0.23+1.18.2 <br>✅ ToastControl-1.18.2-6.0.3 <br>✅ tombstone-7.6.3-1.18.2 <br>✅ torchmaster-18.1.0 <br>✅ trashcans-1.0.17a-forge-mc1.18 <br>✅ twilightforest-1.18.2-4.1.1494-universal <br>✅ valhelsia_core-forge-1.18.2-0.4.0 <br>✅ WaterStrainer-1.18.2-13.0.0 <br>✅ WitherSkeletonTweaks-1.18.2-7.1.3 <br>✅ XNet ${version}<br>✅ XNetGases-1.18.2-3.0.1 <br>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
